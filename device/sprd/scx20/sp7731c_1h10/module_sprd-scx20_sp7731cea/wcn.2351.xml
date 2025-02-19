@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- the reference template of board building tool about WCN -->
+
+<!--
+	 gps_2351: gps_2351@21c00000{
+		compatible  = "sprd,gps_2351";
+		interrupts = <0 52 0x0>;
+		gpios = <&d_gpio_gpio 58 0>;
+		reg = <0X21C00000 0x1000>,		/*GPS CORE BASE*/
+			<0X20D00000 0x10000>,		/*AHB_ADDR*/
+			<0X402B0000 0x10000>;		/*PMU BASE*/
+	 };
+-->
+
+<ui name="WCN">
+    <ui_pannel name="wcn">
+        <dts_node name="gps_2351: gps_2351@21c00000" ui_node_name="gps_2351">
+	    <property
+		dts_name="gpios"
+		ui_name="lna_enable"
+		ui_value="&lt;&amp;d_gpio_gpio 58 0&gt;"
+		ui_current_value="&lt;&amp;d_gpio_gpio 58 0&gt;"
+		ui_comments="用户一般只需要修改GPIO number(如:0x58)即可。第一个值&amp;d_gpio_gpio表示关联
+到节点d_gpio_gpio;第二个值表示gps天线增益GPIO的配置管脚，默认值0x58;第三个值默认为0."
+		widget_type="edit">
+		<coder
+		    modify_ui_value="&lt;&amp;d_gpio_gpio x 0&gt;"
+		    output_dts_value="&lt;&amp;d_gpio_gpio x 0&gt;"/>
+
+	    </property>
+
+	</dts_node>
+    </ui_pannel>
+</ui>

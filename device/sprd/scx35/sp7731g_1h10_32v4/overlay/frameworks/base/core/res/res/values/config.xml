@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!-- Is the device capable of hot swapping an UICC Card -->
+<bool name="config_hotswapCapable">true</bool>
+</resources>

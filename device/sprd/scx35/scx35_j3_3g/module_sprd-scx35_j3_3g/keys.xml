@@ -1,0 +1,45 @@
+<ui name="KEYS">
+    <ui_pannel name="keys">
+        <dts_node ui_node_name="keypad" name="keypad@40250000">
+            <property dts_name="gpios" ui_value="&lt;&amp;a_eic_gpio 2 0&gt;" ui_current_value="&lt;&amp;a_eic_gpio 2 0&gt;" widget_type="edit" ui_comments="该属性对应三个值需要客户自己配置，第一个值a_eic_gpio是一个列表，有多个选项，比如：a_eic_gpio和d_eic_gpio；第二项为gpio number；第三项不需要修改" ui_name="gpios"/>
+            <property dts_name="interrupts" ui_value="&lt;0 36 0x0&gt;" ui_current_value="&lt;0 36 0x0&gt;" widget_type="edit" ui_comments="" ui_name="interrupts"/>
+            <property dts_name="sprd,keypad-num-rows" ui_value="1 | 2 | 3 | 4" ui_current_value="2" widget_type="list" ui_comments="有多少行" ui_name="row counts">
+                <coder output_dts_value="&lt;1&gt;" modify_ui_value="1"/>
+                <coder output_dts_value="&lt;2&gt;" modify_ui_value="2"/>
+                <coder output_dts_value="&lt;3&gt;" modify_ui_value="3"/>
+                <coder output_dts_value="&lt;4&gt;" modify_ui_value="4"/>
+            </property>
+            <property dts_name="sprd,keypad-num-columns" ui_value="1 | 2 | 3 | 4" ui_current_value="2" widget_type="list" ui_comments="有多少列" ui_name="column counts">
+                <coder output_dts_value="&lt;1&gt;" modify_ui_value="1"/>
+                <coder output_dts_value="&lt;2&gt;" modify_ui_value="2"/>
+                <coder output_dts_value="&lt;3&gt;" modify_ui_value="3"/>
+                <coder output_dts_value="&lt;4&gt;" modify_ui_value="4"/>
+            </property>
+            <property dts_name="sprd,keypad-rows-choose-hw" ui_value="&lt;0x30000&gt;" ui_current_value="&lt;0x30000&gt;" widget_type="edit" ui_comments="行选择位" ui_name="row chozen"/>
+            <property dts_name="sprd,keypad-cols-choose-hw" ui_value="&lt;0x300&gt;" ui_current_value="&lt;0x300&gt;" widget_type="edit" ui_comments="列选择位" ui_name="column chozen"/>
+            <property dts_name="sprd,debounce_time" ui_value="&lt;5000&gt;" ui_current_value="&lt;5000&gt;" widget_type="edit" ui_comments="去抖时间" ui_name="debounce time"/>
+            <property dts_name="linux,keypad-no-autorepeat" ui_value="true | false" ui_current_value="true" widget_type="checkbox" ui_comments="自动重复功能" dts_type="property" ui_name="auto-repeat">
+                <coder output_dts_value="linux,keypad-no-autorepeat" modify_ui_value="true"/>
+                <coder output_dts_value="NA" modify_ui_value="false"/>
+            </property>
+            <property dts_name="sprd,support_long_key" ui_value="true | false" ui_current_value="true" widget_type="checkbox" ui_comments="支持长按" dts_type="property" ui_name="support long key">
+                <coder output_dts_value="sprd,support_long_key" modify_ui_value="true"/>
+                <coder output_dts_value="NA" modify_ui_value="false"/>
+            </property>
+        </dts_node>
+        <dts_node ui_node_name="volume down" name="key_volume_down">
+            <property dts_name="keypad,row" ui_value="&lt;0&gt;" ui_current_value="&lt;0&gt;" widget_type="edit" ui_comments="所在行" ui_name="row number"/>
+            <property dts_name="keypad,column" ui_value="&lt;0&gt;" ui_current_value="&lt;0&gt;" widget_type="edit" ui_comments="所在列" ui_name="column number"/>
+        </dts_node>
+<!--
+        <dts_node ui_node_name="volume up" name="key_volume_up">
+            <property dts_name="keypad,row" ui_value="&lt;1&gt;" ui_current_value="&lt;1&gt;" widget_type="edit" ui_comments="所在行" ui_name="row number"/>
+            <property dts_name="keypad,column" ui_value="&lt;0&gt;" ui_current_value="&lt;0&gt;" widget_type="edit" ui_comments="所在列" ui_name="column number"/>
+        </dts_node>
+-->
+        <dts_node ui_node_name="home" name="key_home">
+            <property dts_name="keypad,row" ui_value="&lt;0&gt;" ui_current_value="&lt;0&gt;" widget_type="edit" ui_comments="所在行" ui_name="row number"/>
+            <property dts_name="keypad,column" ui_value="&lt;1&gt;" ui_current_value="&lt;1&gt;" widget_type="edit" ui_comments="所在列" ui_name="column number"/>
+        </dts_node>
+    </ui_pannel>
+</ui>

@@ -1,0 +1,38 @@
+on post-fs
+    insmod /system/lib/modules/focaltech_ts.ko
+
+service download /system/bin/download
+    class cali
+    user root
+    group root
+
+service gnss_download /system/bin/gnss_download
+    class cali
+    user system
+    group system
+    oneshot
+
+on factorytest
+service download-ft /system/bin/download
+    class factorytest
+    user root
+    group root
+
+service gnss_download-ft /system/bin/gnss_download
+    class factorytest
+    user root
+    group root
+    
+on cali
+	mount_all /etc/recovery.fstab
+
+# start slog
+# trigger adb_enable
+
+#set the function of eng storing the DSP/ARMlog to Sdcard closed in default
+on property:ro.bootmode=cali
+   setprop sys.config.engcplog.enable 1
+
+service slog /system/bin/slog -t
+	class main
+	user root

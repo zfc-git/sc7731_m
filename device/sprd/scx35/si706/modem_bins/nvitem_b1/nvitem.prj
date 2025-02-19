@@ -1,0 +1,34 @@
+# SpreadTrum NVEditor Project File, Format Version 1.0
+# WARNING: DO NOT EDIT OR DELETE THIS PROJECT FILE!
+
+################################################################################
+  PROJECT     =  NVitem
+  ALIGNMENT   =  4
+  TARGET      =  nvitem.bin
+  DESCRIPTION =  
+
+################################################################################
+
+# Begin Project Module
+
+  MODULE     =  SC7731g_sr3130_Common_RFGPIO_config_gsm_band125.nvm
+  MODULE     =  Calibrationparam_sc8800g1_qs3200_td.nvm
+  MODULE     =  Downloadparam_sc8800g1_qs3200_td.nvm
+  MODULE     =  Calibrationparam_sc7731g_sr3130_gsm.nvm
+  MODULE     =  DownloadParam_sc7731g_sr3130_gsm.nvm
+  MODULE     =  nv_type_4band.nvm
+  MODULE     =  td_nv_type.nvm
+  MODULE     =  ProductionParam.nvm
+  MODULE     =  Calibrationparam_sc7731g_sr3130_wcdma_band125.nvm
+  MODULE     =  Downloadparam_sc7731g_sr3130_wcdma_band125.nvm
+  MODULE     =  SC7731g_sr3130_Common_RFGPIO_config_wcdma_band125.nvm
+  MODULE     =  DataCard_ProductionParam.nvm
+  MODULE     =  BaseParam.nvm
+  MODULE     =  audio_arm.nvm
+  MODULE     =  audio_dsp_codec_shark.nvm
+  MODULE     =  audio_lvve_dualmic_normal_wb.nvm
+  MODULE     =  audio_sc8800g1_datacard_modem.nvm
+
+# End Project Module
+
+################################################################################

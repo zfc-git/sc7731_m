@@ -1,0 +1,31 @@
+<ui name="GPIO_KEYS">
+    <ui_pannel name="gpio_keys">
+        <dts_node ui_node_name="gpio keys" name="gpio_keys">
+            <property dts_name="input-name" ui_value="sprd-gpio-keys" ui_current_value="sprd-gpio-keys" widget_type="edit" ui_comments="input名称" ui_name="input-name"/>
+        </dts_node>
+        <dts_node ui_node_name="volume down key" name="key_volumedown">
+            <property dts_name="gpios" ui_value="&lt;&amp;d_gpio_gpio 199 1&gt;" ui_current_value="&lt;&amp;d_gpio_gpio 124 1&gt;" widget_type="edit" ui_comments="gpio number" ui_name="gpios"/>
+            <property dts_name="debounce-interval" ui_value="&lt;2&gt;" ui_current_value="&lt;2&gt;" widget_type="edit" ui_comments="去抖时间" ui_name="debounce-interval"/>
+            <property dts_name="gpio-key,wakeup" ui_value="true | false" ui_current_value="true" widget_type="checkbox" ui_comments="是否支持唤醒AP" dts_type="property" ui_name="support wakeup">
+                <coder output_dts_value="gpio-key,wakeup" modify_ui_value="true"/>
+                <coder output_dts_value="NA" modify_ui_value="false"/>
+            </property>
+            <property dts_name="trig_irq-level" ui_value="0 | 1" ui_current_value="0" widget_type="list" ui_comments="触发电平" ui_name="trig_irq-level">
+                <coder output_dts_value="&lt;0&gt;" modify_ui_value="0"/>
+                <coder output_dts_value="&lt;1&gt;" modify_ui_value="1"/>
+            </property>
+        </dts_node>
+        <dts_node ui_node_name="volume up key" name="key_volumeup">
+            <property dts_name="gpios" ui_value="&lt;&amp;d_gpio_gpio 200 1&gt;" ui_current_value="&lt;&amp;d_gpio_gpio 125 1&gt;" widget_type="edit" ui_comments="gpio number" ui_name="gpios"/>
+            <property dts_name="debounce-interval" ui_value="&lt;2&gt;" ui_current_value="&lt;2&gt;" widget_type="edit" ui_comments="去抖时间" ui_name="debounce-interval"/>
+            <property dts_name="gpio-key,wakeup" ui_value="true | false" ui_current_value="true" widget_type="checkbox" ui_comments="是否支持唤醒AP" dts_type="property" ui_name="support wakeup">
+                <coder output_dts_value="gpio-key,wakeup" modify_ui_value="true"/>
+                <coder output_dts_value="NA" modify_ui_value="false"/>
+            </property>
+            <property dts_name="trig_irq-level" ui_value="0 | 1" ui_current_value="0" widget_type="list" ui_comments="触发电平" ui_name="trig_irq-level">
+                <coder output_dts_value="&lt;0&gt;" modify_ui_value="0"/>
+                <coder output_dts_value="&lt;1&gt;" modify_ui_value="1"/>
+            </property>
+        </dts_node>
+    </ui_pannel>
+</ui>

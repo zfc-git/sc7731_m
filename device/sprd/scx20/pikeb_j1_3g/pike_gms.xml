@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  FlashTypeID: 0, means Nor Flash;1, means Nand Flash       -->
+<!--  File-Flag: 0, means this file need not  input file path   -->
+<!--             1, means this file need input file path        -->
+<!--  File-CheckFlag: 0, this file is optional                  -->
+<!--                  1, must select this file                  -->
+<!--                  2, means not check this file in pack      -->
+<!--  Mode: 0, not uesed; 1, means nand page size and oob care  -->
+<!--  File-Type: MasterImage,means it will add BOOT_PARAM       -->
+<!--             and OS_INFO information to file                -->
+<!--  File-ID: Can not be changed,it is used by tools           -->
+<!--  File-IDAlias: This is  for GUI display can be changed     -->
+<BMAConfig>
+	<ProductList>	
+		<Product name="SC77xx">
+			<SchemeName>SC77xx</SchemeName>
+			<FlashTypeID>1</FlashTypeID>
+			<Mode>0</Mode>			
+			<NVBackup backup="1">
+				<NVItem name="Calibration" backup="1">
+					<ID>0xFFFFFFFF</ID>
+					<BackupFlag use="1">
+						<NVFlag name ="Replace" check ="0"></NVFlag>
+						<NVFlag name ="Continue" check ="0"></NVFlag>
+					</BackupFlag>
+				</NVItem>
+				<NVItem name="IMEI" backup="1">
+					<ID>0xFFFFFFFF</ID>
+					<BackupFlag use="0"></BackupFlag>
+				</NVItem>
+				<NVItem name="W_Calibration" backup="1">
+					<ID>0x12D</ID>
+					<BackupFlag use="1">
+						<NVFlag name ="Continue" check ="0"></NVFlag>
+					</BackupFlag>
+				</NVItem>	
+				<NVItem name="BlueTooth" backup="1">
+					<ID>0x191</ID>
+					<BackupFlag use="1">
+						<NVFlag name ="Continue" check ="0"></NVFlag>
+					</BackupFlag>
+				</NVItem>
+				<NVItem name="BandSelect" backup="1">
+					<ID>0xD</ID>
+					<BackupFlag use="1">
+						<NVFlag name ="Continue" check ="0"></NVFlag>
+					</BackupFlag>
+				</NVItem>
+				<NVItem name="WIFI" backup="1">
+					<ID>0x199</ID>
+					<BackupFlag use="1">
+						<NVFlag name ="Continue" check ="1"></NVFlag>
+					</BackupFlag>
+				</NVItem>
+				<NVItem name="MMITest" backup="1">
+					<ID>0x19A</ID>
+					<BackupFlag use="1">
+						<NVFlag name ="Continue" check ="1"></NVFlag>
+					</BackupFlag>
+				</NVItem>
+				<NVItem name="WIFICal1" backup="1">
+					<ID>0x19F</ID>
+					<BackupFlag use="1">
+						<NVFlag name ="Continue" check ="1"></NVFlag>
+					</BackupFlag>
+				</NVItem>
+				<NVItem name="WIFICal2" backup="1">
+					<ID>0x1A0</ID>
+					<BackupFlag use="1">
+						<NVFlag name ="Continue" check ="1"></NVFlag>
+					</BackupFlag>
+				</NVItem>
+				<NVItem name="WIFICal3" backup="1">
+					<ID>0x1A1</ID>
+					<BackupFlag use="1">
+						<NVFlag name ="Continue" check ="1"></NVFlag>
+					</BackupFlag>
+				</NVItem>		
+			</NVBackup>	
+			<Partitions>
+				<!-- size unit is MBytes -->
+				<!--
+				<Partition id="splloader" 		size="0"/> 
+				<Partition id="ubootloader"		size="0"/> 
+				-->	
+				<Partition id="prodnv"    		size="5"/> 
+				<Partition id="miscdata"  		size="1"/> 		
+				<Partition id="wmodem" 				size="8"/> 
+				<Partition id="wdsp" 					size="2"/> 
+				<Partition id="wfixnv1"				size="1"/> 
+				<Partition id="wfixnv2" 			size="1"/> 
+				<Partition id="wruntimenv1" 	size="1"/> 
+				<Partition id="wruntimenv2" 	size="1"/>
+				<Partition id="wcnmodem" 			size="1"/> 
+				<Partition id="wcnfixnv1" 		size="1"/> 
+				<Partition id="wcnfixnv2" 		size="1"/> 
+				<Partition id="wcnruntimenv1" size="1"/> 
+				<Partition id="wcnruntimenv2" size="1"/>
+				<Partition id="logo" 					size="1"/> 
+				<Partition id="fbootlogo" 		size="1"/>  
+				<Partition id="boot" 				  size="15"/> 
+				<Partition id="system" 				size="1640"/> 
+				<Partition id="persist" 			size="2"/>
+				<Partition id="sysinfo"             size="6"/>
+				<Partition id="cache" 				size="150"/> 
+				<Partition id="recovery" 			size="12"/> 
+				<Partition id="misc" 					size="1"/> 
+				<Partition id="userdata" 			size="0xFFFFFFFF"/>
+			</Partitions>				
+			<ProductComment/>
+		</Product>											
+	</ProductList>
+	<SchemeList>
+		<Scheme name="SC77xx">
+			<File>
+				<ID>FDL</ID>
+				<IDAlias>FDL1</IDAlias>
+				<Type>FDL</Type>
+				<Block>
+					<Base>0x50000000</Base>
+					<Size>0x0</Size>
+				</Block>
+				<Flag>1</Flag>
+				<CheckFlag>1</CheckFlag>
+				<Description>First nand flash download image file</Description>
+			</File>
+			<File>
+				<ID>FDL2</ID>
+				<IDAlias>FDL2</IDAlias>
+				<Type>NAND_FDL</Type>
+				<Block>
+					<Base>0x9f000000</Base>
+					<Size>0x0</Size>
+				</Block>
+				<Flag>1</Flag>
+				<CheckFlag>1</CheckFlag>
+				<Description>Second nand flash download image file</Description>
+			</File>
+			<File>
+				<ID>NV_W</ID>
+				<IDAlias>NV_W</IDAlias>
+				<Type>NV_COMM</Type>
+				<Block id="wfixnv1">
+					<Base>0x80000010</Base>
+					<Size>0x0</Size>
+				</Block>
+				<Flag>1</Flag>
+				<CheckFlag>0</CheckFlag>
+				<Description>W FixVN image file</Description>
+			</File>
+			<File backup="0">
+				<ID>NV_WCN</ID>
+				<IDAlias>NV_WCN</IDAlias>
+				<Type>NV_COMM</Type>
+				<Block id="wcnfixnv1">
+					<Base>0x80000008</Base>
+					<Size>0x0</Size>					
+				</Block>
+				<Flag>1</Flag>
+				<CheckFlag>0</CheckFlag>
+				<Description>WCN FixVN image file</Description>
+			</File>	
+			<File backup="1">
+				<ID>PhaseCheck</ID>
+				<IDAlias>PhaseCheck</IDAlias>
+				<Type>CODE2</Type>
+				<Block id="miscdata">
+					<Base>0x80000014</Base>
+					<Size>0x100000</Size>
+				</Block>
+				<Flag>0</Flag>
+				<CheckFlag>0</CheckFlag>
+				<Description>miscdata(phase check) section</Description>
+			</File>
+			<File backup="1">
+				<ID>ProdNV</ID>
+				<IDAlias>ProdNV</IDAlias>
+				<Type>CODE2</Type>
+				<Block id="prodnv">
+					<Base>0x0</Base>
+					<Size>0x500000</Size>
+				</Block>
+				<Flag>1</Flag>
+				<CheckFlag>0</CheckFlag>
+				<Description>Download prodnv section  operation</Description>
+			</File>
+			<File>
+				<ID>EraseUBOOT</ID>
+				<IDAlias>EraseUBOOT</IDAlias>
+				<Type>EraseFlash2</Type>
+				<Block id="uboot">
+					<Base>0x80000002</Base>
+					<Size>0x0</Size>
+				</Block>
+				<Flag>0</Flag>
+				<CheckFlag>2</CheckFlag>
+				<Description>Erase UBootloader section</Description>
+			</File>
+			<File>
+				<ID>SPLLoader</ID>
+				<IDAlias>SPL_LOADER</IDAlias>
+				<Type>UBOOT_LOADER2</Type>
+				<Block id="splloader">
+					<Base>0x80000000</Base>
+					<Size>0x0</Size>
+				</Block>
+				<Flag>1</Flag>
+				<CheckFlag>0</CheckFlag>
+				<Description>Bootloader image file</Description>
+			</File>			
+			<File>
+				<ID>Modem_W</ID>
+				<IDAlias>Modem_W</IDAlias>
+				<Type>CODE2</Type>
+				<Block id="wmodem">
+					<Base>0x8000000C</Base>
+					<Size>0x0</Size>
+				</Block>
+				<Flag>1</Flag>
+				<CheckFlag>0</CheckFlag>
+				<Description>W Modem image file</Description>
+			</File>	
+			<File>
+				<ID>DSP_W</ID>
+				<IDAlias>DSP_W</IDAlias>
+				<Type>CODE2</Type>
+				<Block id="wdsp">
+					<Base>0x8000000E</Base>
+					<Size>0x0</Size>
+				</Block>
+				<Flag>1</Flag>
+				<CheckFlag>0</CheckFlag>
+				<Description>W DSP image file</Description>
+			</File>
+			<File>
+				<ID>Modem_WCN</ID>
+				<IDAlias>Modem_WCN</IDAlias>
+				<Type>CODE2</Type>
+				<Block id="wcnmodem">
+					<Base>0x80000004</Base>
+					<Size>0x0</Size>
+				</Block>
+				<Flag>1</Flag>
+				<CheckFlag>0</CheckFlag>
+				<Description>WCN Modem image file</Description>
+			</File>									
+			<File>
+				<ID>BOOT</ID>
+				<IDAlias>BOOT</IDAlias>
+				<Type>CODE2</Type>
+				<Block id="boot">
+					<Base>0x8000001C</Base>
+					<Size>0x0</Size>
+				</Block>
+				<Flag>1</Flag>
+				<CheckFlag>0</CheckFlag>
+				<Description>Kernel image file</Description>
+			</File>
+			<File>
+				<ID>Recovery</ID>
+				<IDAlias>Recovery</IDAlias>
+				<Type>CODE2</Type>
+				<Block id="recovery">
+					<Base>0x80000022</Base>
+					<Size>0x0</Size>
+				</Block>
+				<Flag>1</Flag>
+				<CheckFlag>0</CheckFlag>
+				<Description>Recovery image file</Description>
+			</File>
+			<File>
+				<ID>System</ID>
+				<IDAlias>System</IDAlias>
+				<Type>YAFFS_IMG2</Type>
+				<Block id="system">
+					<Base>0x8000001E</Base>
+					<Size>0x0</Size>
+				</Block>
+				<Flag>1</Flag>
+				<CheckFlag>0</CheckFlag>
+				<Description>System image file</Description>
+			</File>
+			<File>
+				<ID>Persist</ID>
+				<IDAlias>Persist</IDAlias>
+				<Type>YAFFS_IMG2</Type>
+				<Block id="persist">
+					<Base>0x0</Base>
+					<Size>0x0</Size>
+				</Block>
+				<Flag>1</Flag>
+				<CheckFlag>0</CheckFlag>
+				<Description>Persist image file</Description>
+			</File>
+			<File>
+		               <ID>SysInfo</ID>
+		               <IDAlias>SysInfo</IDAlias>
+		               <Type>CODE2</Type>
+		               <Block id="sysinfo">
+		               <Base>0x0</Base>
+		               <Size>0x500000</Size>
+		               </Block>
+		               <Flag>1</Flag>
+		               <CheckFlag>0</CheckFlag>
+		              <Description>Download sysinfo section  operation</Description>
+		        </File>
+			<File>
+				<ID>UserData</ID>
+				<IDAlias>UserData</IDAlias>
+				<Type>YAFFS_IMG2</Type>
+				<Block id="userdata">
+					<Base>0x80000028</Base>
+					<Size>0x0</Size>
+				</Block>
+				<Flag>1</Flag>
+				<CheckFlag>0</CheckFlag>
+				<Description>UserData image file</Description>
+			</File>
+			<File>
+				<ID>BootLogo</ID>
+				<IDAlias>BootLogo</IDAlias>
+				<Type>CODE2</Type>
+				<Block id="logo">
+					<Base>0x80000018</Base>
+					<Size>0x0</Size>
+				</Block>
+				<Flag>1</Flag>
+				<CheckFlag>0</CheckFlag>
+				<Description>BootLoader boot logo</Description>
+			</File>
+			<File>
+				<ID>Fastboot_Logo</ID>
+				<IDAlias>Fastboot_Logo</IDAlias>
+				<Type>CODE2</Type>
+				<Block id="fbootlogo">
+					<Base>0x8000001A</Base>
+					<Size>0x0</Size>
+				</Block>
+				<Flag>1</Flag>
+				<CheckFlag>2</CheckFlag>
+				<Description>Fastboot Logo</Description>
+			</File>
+			<File>
+				<ID>FLASH</ID>
+				<IDAlias>EraseRuntimeNVW</IDAlias>
+				<Type>EraseFlash2</Type>
+				<Block id="wruntimenv1">
+					<Base>0x80000012</Base>
+					<Size>0x0</Size>
+				</Block>
+				<Flag>0</Flag>
+				<CheckFlag>0</CheckFlag>
+				<Description>Erase W runtimenv section operation</Description>
+			</File>	
+			<File>
+				<ID>FLASH_WCN</ID>
+				<IDAlias>EraseRuntimeNVWCN</IDAlias>
+				<Type>EraseFlash2</Type>
+				<Block id="wcnruntimenv1">
+					<Base>0x8000000A</Base>
+					<Size>0x0</Size>
+				</Block>
+				<Flag>0</Flag>
+				<CheckFlag>0</CheckFlag>
+				<Description>Erase WCN runtimenv section operation</Description>
+			</File>					
+			<File>
+				<ID>Cache</ID>
+				<IDAlias>Cache</IDAlias>
+				<Type>YAFFS_IMG2</Type>
+				<Block id="cache">
+					<Base>0x80000020</Base>
+					<Size>0x0</Size>
+				</Block>
+				<Flag>1</Flag>
+				<CheckFlag>2</CheckFlag>
+				<Description>Download cache section operation</Description>
+			</File>	
+			<File>
+				<ID>EraseMisc</ID>
+				<IDAlias>EraseMisc</IDAlias>
+				<Type>EraseFlash2</Type>
+				<Block id="misc">
+					<Base>0x80000024</Base>
+					<Size>0x0</Size>
+				</Block>
+				<Flag>0</Flag>
+				<CheckFlag>0</CheckFlag>
+				<Description>Erase misc section operation</Description>
+			</File>
+			<File>
+				<ID>UBOOTLoader</ID>
+				<IDAlias>UBOOT_LOADER</IDAlias>
+				<Type>UBOOT_LOADER2</Type>
+				<Block id="uboot">
+					<Base>0x80000002</Base>
+					<Size>0x0</Size>
+				</Block>
+				<Flag>1</Flag>
+				<CheckFlag>0</CheckFlag>
+				<Description>UBootloader image file</Description>
+			</File>
+		</Scheme>
+	</SchemeList>
+</BMAConfig>

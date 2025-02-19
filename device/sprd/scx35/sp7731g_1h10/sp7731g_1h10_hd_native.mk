@@ -1,0 +1,28 @@
+include device/sprd/scx35/sp7731g_1h10/sp7731g_1h10_common.mk
+ifeq ($(strip $(ZEDIEL_PROJECT_CONFIG)), $(filter $(ZEDIEL_PROJECT_CONFIG), ZEDIEL_SI8637KA  ZEDIEL_SI106ASB  ZEDIEL_SI100MAA ZEDIEL_SI006ASB))
+include $(PLATCOMM)/base.mk
+else
+include $(PLATCOMM)/plus.mk
+endif
+
+PRODUCT_REVISION := multiuser
+
+include $(APPLY_PRODUCT_REVISION)
+
+CHIPRAM_DEFCONFIG := sp7731gea_hdr
+UBOOT_DEFCONFIG := sp7731gea_hdr
+KERNEL_DEFCONFIG := sp7731gea_hdr-dt_defconfig
+DTS_DEFCONFIG := sprd-scx35_sp7731gea_hdr
+
+
+# Overrides
+PRODUCT_NAME := sp7731g_1h10_hd_native
+PRODUCT_DEVICE := $(TARGET_BOARD)
+PRODUCT_MODEL := SP7731A
+PRODUCT_BRAND := SPRD
+PRODUCT_MANUFACTURER := SPRD
+
+PRODUCT_LOCALES := zh_CN zh_TW en_US
+
+PRODUCT_PACKAGES += \
+    FlashTest

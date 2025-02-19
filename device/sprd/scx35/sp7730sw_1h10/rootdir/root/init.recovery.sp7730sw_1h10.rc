@@ -1,0 +1,24 @@
+on post-fs
+    insmod /system/lib/modules/focaltech_ts.ko
+
+service download /system/bin/download
+    class cali
+    user root
+    group root
+
+service gnss_download /system/bin/gnss_download
+    class cali
+    user system
+    group system
+    oneshot
+
+on factorytest
+service download-ft /system/bin/download
+    class factorytest
+    user root
+    group root
+
+service gnss_download-ft /system/bin/gnss_download
+    class factorytest
+    user root
+    group root

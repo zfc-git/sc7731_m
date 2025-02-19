@@ -1,0 +1,12 @@
+type ip_monitor, domain;
+type ip_monitor_exec, exec_type, file_type;
+
+init_daemon_domain(ip_monitor)
+
+allow ip_monitor shell_exec:file read;
+allow ip_monitor system_file:file execute_no_trans;
+allow ip_monitor ip_monitor:netlink_route_socket {create setopt bind getattr write nlmsg_read read };
+
+allow ip_monitor net_data_file:dir {search read};
+allow ip_monitor net_data_file:file {read open getattr};
+

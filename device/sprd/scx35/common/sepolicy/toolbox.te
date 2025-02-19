@@ -1,0 +1,37 @@
+allow toolbox kernel:dir { search getattr read open };
+allow toolbox kernel:file { read open };
+allow toolbox init:dir search;
+allow toolbox ueventd:dir search;
+allow toolbox logd:dir {search getattr };
+allow toolbox vold:dir {search getattr };
+allow toolbox gatekeeperd:dir {search getattr };
+
+userdebug_or_eng(`
+    allow toolbox perfprofd:dir {search getattr };
+')
+
+### for bug:472144 {
+allow toolbox init:fifo_file {write getattr };
+allow toolbox init:unix_stream_socket connectto;
+allow toolbox property_socket:sock_file write;
+allow toolbox system_prop:property_service set;
+### }
+# for bug:487943 {
+allow toolbox radio_prop:property_service set;
+#}
+
+allow toolbox init:fifo_file read;
+
+### for bug:495015 {
+allow toolbox graphics_device:chr_file {read write};
+allow toolbox input_device:chr_file read;
+allow toolbox radio_device:chr_file {read write};
+allow toolbox toolbox:capability {dac_override dac_read_search sys_module};
+###}
+allow toolbox console_device:chr_file { ioctl getattr read write };
+allow toolbox ctl_default_prop:property_service { set };
+allow toolbox kernel:system { syslog_read };
+allow toolbox system_data_file:dir { add_name create getattr open read remove_name rmdir search unlink write };
+allow toolbox shell_data_file:dir { add_name create getattr open read remove_name rmdir search unlink write };
+allow toolbox wifi_data_file:file { open read };
+allow toolbox wifi_data_file:dir { search  };

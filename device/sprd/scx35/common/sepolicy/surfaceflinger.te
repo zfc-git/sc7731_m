@@ -1,0 +1,5 @@
+allow surfaceflinger system_data_file:dir { write add_name };
+#allow surfaceflinger system_data_file:file { write create open };
+
+allow surfaceflinger slogd:binder {call transfer};
+allow surfaceflinger device:dir rw_dir_perms;

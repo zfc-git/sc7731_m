@@ -1,0 +1,18 @@
+include device/sprd/scx35/sp7731g_1h10_32v4/sp7731g_1h10_32v4_common.mk
+
+include $(PLATCOMM)/plus.mk
+
+CHIPRAM_DEFCONFIG := sp7731gea
+UBOOT_DEFCONFIG := sp7731gea
+TARGET_SUPPORT_ADF_DISPLAY := true
+KERNEL_DEFCONFIG := sp7731gea-dt_adf_defconfig
+DTS_DEFCONFIG := sprd-scx35_sp7731gea_adf
+
+# Overrides
+PRODUCT_NAME := sp7731g_1h10_32v4_adf
+PRODUCT_DEVICE := $(TARGET_BOARD)
+PRODUCT_MODEL := SP7731A
+PRODUCT_BRAND := SPRD
+PRODUCT_MANUFACTURER := SPRD
+
+PRODUCT_LOCALES := zh_CN zh_TW en_US

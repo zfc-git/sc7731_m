@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- 以下为sdio的dts文件 -->
+<!--
+sdios{
+	#address-cells = <2>;
+	#size-cells = <2>;
+	ranges;
+
+	sdio3: sdio@20600000{
+		compatible  = "sprd,sdhost-3.0";
+		reg = <0 0x20600000 0 0x1000>;
+		interrupts = <0 60 0x0>;
+		sprd,name = "sdio_emmc";
+		/*detect_gpio = <-1>; */
+		SD_Pwr_Name = "vddemmccore";
+		_1_8V_signal_Name = "vddemmcio";
+		signal_default_Voltage = <1800000>;
+		ocr_avail = <0x00040000>;
+		clocks = <&clk_emmc>, <&clk_384m>;
+		base_clk = <384000000>;
+		caps = <0xC00F8D06>;
+		bus-width = <8>;
+		caps2 = <0x202>;
+		pm_caps = <0x4>;
+		writeDelay = <0x4>;
+		readPosDelay = <0x4>;
+		readNegDelay = <0x4>;
+	};
+
+	sdio0: sdio@20300000{
+		compatible  = "sprd,sdhost-3.0";
+		reg = <0 0x20300000 0 0x1000>;
+		interrupts = <0 57 0x0>;
+		sprd,name = "sdio_sd";
+		detect_gpio = <141>;
+		SD_Pwr_Name = "vddsd";
+		/* _1_8V_signal_Name = "vddsdio"; */
+		signal_default_Voltage = <3000000>;
+		ocr_avail = <0x00040000>;
+		clocks = <&clk_sdio0>, <&clk_384m>;
+		base_clk = <384000000>;
+		caps = <0xC0000406>;
+		bus-width = <4>;
+		caps2 = <0x200>;
+		pm_caps = <0x4>;
+		writeDelay = <0x4>;
+		readPosDelay = <0x4>;
+		readNegDelay = <0x4>;
+	};
+
+	sdio1: sdio@20400000{
+		compatible  = "sprd,sdhost-3.0";
+		reg = <0 0x20400000 0 0x1000>;
+		interrupts = <0 58 0x0>;
+		sprd,name = "sdio_wifi";
+		/* detect_gpio = <-1>; */
+		/* SD_Pwr_Name = "vddsdcore"; */
+		/* _1_8V_signal_Name = "vddsdio";*/
+		/* signal_default_Voltage = <3000000>; */
+		ocr_avail = <0x00360080>;
+		clocks = <&clk_sdio1>, <&clk_96m>;
+		base_clk = <96000000>;
+		bus-width = <4>;
+		caps = <0xC00FA406>;
+		caps2 = <0x0>;
+		pm_caps = <0x5>;
+		writeDelay = <0x03>;
+		readPosDelay = <0x03>;
+		readNegDelay = <0x03>;
+	};
+};
+
+-->
+<!--
+在这里需要使用到一些转义字符,如下所示:
+&lt;	<	小于号
+&gt;	>	大于号
+&amp;	&	和
+&apos;	'	单引号
+&quot;	"	双引号
+-->
+<ui name="SDIO">
+	<ui_pannel name="emmc">
+		<dts_node ui_node_name="sdio_emmc" name="sdio3: sdio@20600000">
+			<property
+				dts_name="bus-width"
+				ui_name="bus width"
+				ui_value="1 | 4 | 8"
+				ui_current_value="4"
+				ui_comments="Numbers of data lines, can be 1, 4, or 8. The default will be 1 if the property is absent"
+				widget_type="list">
+				<coder output_dts_value="&lt;1&gt;" modify_ui_value="1"/>
+				<coder output_dts_value="&lt;4&gt;" modify_ui_value="4"/>
+				<coder output_dts_value="&lt;8&gt;" modify_ui_value="8"/>
+			</property>
+		</dts_node>
+	</ui_pannel>
+
+	<ui_pannel name="sd">
+		<dts_node ui_node_name="sdio_sd" name="sdio0: sdio@20300000">
+			<property
+				dts_name="bus-width"
+				ui_name="bus width"
+				ui_value="1 | 4"
+				ui_current_value="1"
+				ui_comments="Numbers of data lines, can be 1, 4. The default will be 1 if the property is absent"
+				widget_type="list">
+				<coder output_dts_value="&lt;1&gt;" modify_ui_value="1"/>
+				<coder output_dts_value="&lt;4&gt;" modify_ui_value="4"/>
+			</property>
+
+			<property
+				dts_name="detect_gpio"
+				ui_name="host plug detect gpio"
+				ui_value="NA | x"
+				ui_current_value="&lt;141&gt;"
+				ui_comments="Specity GPIO for card detection.NA means no this property in dts. x means this gpio number is x"
+				widget_type="edit">
+				<coder output_dts_value="&lt;x&gt;" modify_ui_value="&lt;x&gt;"/>
+				<coder output_dts_value="NA" modify_ui_value="NA"/>
+			</property>
+		</dts_node>
+	</ui_pannel>
+
+	<ui_pannel name="wifi">
+		<dts_node ui_node_name="sdio_wifi" name="sdio1: sdio@20400000">
+			<property
+				dts_name="bus-width"
+				ui_name="bus width"
+				ui_value="1 | 4"
+				ui_current_value="4"
+				ui_comments="Numbers of data lines, can be 1, 4. The default will be 1 if the property is absent"
+				widget_type="list">
+				<coder output_dts_value="&lt;1&gt;" modify_ui_value="1"/>
+				<coder output_dts_value="&lt;4&gt;" modify_ui_value="4"/>
+			</property>
+		</dts_node>
+	</ui_pannel>
+</ui>

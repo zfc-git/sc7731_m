@@ -1,0 +1,7 @@
+band1:2100
+band2:1900
+band5:850
+band8:900
+
+3G(2100/900)---nvitem_b1b8
+3G(1900/850)---nvitem_b2b5

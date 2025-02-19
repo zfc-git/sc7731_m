@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+reserved-memory {
+		#address-cells = <1>;
+		#size-cells = <1>;
+		ranges;
+
+		fb_reserved: fb_mem{
+			reg = <0x9ED74000 0xA8C000>;/*fb 720*1280*4*3,4K alignment*/
+		};
+		overlay_reserved: gsp{
+			reg = <0x9f800000 0x800000>;/*overlay 720*1280*4*2 1M alignment*/
+		};
+	};
+
+fb0: fb@20800000 {
+	compatible = "sprd,sprdfb";
+	reg = <0 0x20800000 0 0x1000>,
+			<0 0x21800000 0 0x1000>;
+		interrupts = <0 46 0x0>,
+					<0 48 0x0>,
+					<0 49 0x0>;
+	clock-names = "dispc_clk_parent", "dispc_dbi_clk_parent", "dispc_dpi_clk_parent", "dispc_emc_clk_parent", "dispc_clk", "dispc_dbi_clk", "dispc_dpi_clk", "dispc_emc_clk", "fb_spi_clock", "fb_spi_clock_parent";
+	clocks = <&clk_256m>, <&clk_256m>, <&clk_384m>, <&clk_aon_apb>, <&clk_dispc0>, <&clk_dispc0_dbi>, <&clk_dispc0_dpi>, <&clk_disp_emc>, <&clk_spi2>, <&ext_26m>;
+	clock-src = <256000000 256000000 384000000>;
+	dpi_clk_div = <7>;
+	sprd,fb_use_reservemem;
+	sprd,fb_mem = <0x9ED74000 0xA8C000>;
+};
+
+
+ion {
+	compatible = "sprd,ion-sprd";
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	sprd,ion-heap@3 {
+			reg = <3>; /* OVERLAY */
+			reg-names = "ion_heap_carveout_overlay";
+			sprd,ion-heap-type = <2>; /* CARVEOUT */
+			sprd,ion-heap-reserved = <1>; /*This attribute use to indicate use reserved_memory node*/
+			sprd,ion-heap-mem = <&overlay_reserved>;/* 480*854*4*2, 8K alignment, for display size*/
+		};
+		sprd,ion-heap@4 {
+			reg = <4>; /* FB */
+			reg-names = "ion_heap_carveout_fb";
+			sprd,ion-heap-type = <2>; /* CARVEOUT */
+			sprd,ion-heap-reserved = <1>; /*This attribute use to indicate use reserved_memory node*/
+			sprd,ion-heap-mem = <&fb_reserved>;
+		};
+};
+-->
+
+<ui name="panel">
+	<ui_pannel name="panel">
+		<!-- The dts value is caculated via a formula about ui_value. Let us assume that:
+		ui_vale="x * y", ion_dts_vale="a b" and fb_dts_value="c d". It may be like this:
+		d = (x * y * 4 * 2) & 0xfffff ? (((x * y * 4 * 2) & 0xfff00000) + 0x100000) : (x * y * 4 *2);
+		c = 0xa0000000 - d;
+		b = (x * y * 4 * 3) & 0xfff ? (((x * y * 4 * 3) & 0xfffff000) + 0x1000) : (x * y * 4 * 3);
+		a = c - b;
+		-->
+		<dts_node name="fb0: fb@20800000" ui_node_name="fb0">
+			<property
+				dts_name="sprd,fb_display_size"
+				ui_name="display size"
+				ui_value="&lt;480 854&gt;"
+				ui_current_value = "&lt;480 854&gt;"
+				ui_comments="Big screen to simulate small screen,x * y is Panel Resolution"
+				widget_type="edit">
+				<coder
+					modify_ui_value="&lt;w1 z1&gt;"
+					output_dts_value="&lt;w1 z1&gt;"/>
+			</property>
+			<property
+				dts_name="sprd,fb_mem"
+				ui_name="fb mem"
+				ui_value="480*800|480*854|540*960|600*1024|720*1280|800*1280|1080*1920"
+				ui_current_value = "0x9F7ED000 0x4B1000"
+				ui_comments="reserved memory for fb buffer, x * y is Panel Resolution."
+				widget_type="list">
+				<coder
+					modify_ui_value="480*800"
+					output_dts_value="&lt;0x9F7ED000 0x4B1000&gt;"/>
+				<coder
+					modify_ui_value="480*854"
+					output_dts_value="&lt;0x9F7ED000 0x4B1000&gt;"/>
+				<coder
+					modify_ui_value="540*960"
+					output_dts_value="&lt;0x9F21B00 0x5EF000&gt;"/>
+				<coder
+					modify_ui_value="600*1024"
+					output_dts_value="&lt;0x9F408000 0x708000&gt;"/>
+				<coder
+					modify_ui_value="720*1280"
+					output_dts_value="&lt;0x9ED34000 0xA8C000&gt;"/>
+				<coder
+					modify_ui_value="800*1280"
+					output_dts_value="&lt;0x9E438000 0xBB8000&gt;"/>
+				<coder
+					modify_ui_value="1080*1920"
+					output_dts_value="&lt;0x9D805000 0x17BB000&gt;"/>
+			</property>
+		</dts_node>
+
+		<!-- one node represent a node in DT -->
+		<dts_node name="overlay_reserved: gsp" ui_node_name="overlay_memory">
+			<!-- property name and value represent a property of node in DT -->
+			<property
+				dts_name="reg"
+				ui_name="memory reserved for overlay"
+				ui_value="480*800|480*854|540*960|600*1024|720*1280|800*1280|1080*1920"
+				ui_current_value = "0x9FCDE000 0x322000"
+				ui_comments="reserved memory for overlay buffer, x * y is Panel Resolution."
+				widget_type="list">
+				<coder
+					modify_ui_value="480*800"
+					output_dts_value="&lt;0x9FC9E000 0x322000&gt;"/>
+				<coder
+					modify_ui_value="480*854"
+					output_dts_value="&lt;0x9FC9E000 0x322000&gt;"/>
+				<coder
+					modify_ui_value="540*960"
+					output_dts_value="&lt;0x9FBCA000 0x3F6000&gt;"/>
+				<coder
+					modify_ui_value="600*1024"
+					output_dts_value="&lt;0x9Fb10000 0x4B0000&gt;"/>
+				<coder
+					modify_ui_value="720*1280"
+					output_dts_value="&lt;0x9f7C0000 0x800000&gt;"/>
+				<coder
+					modify_ui_value="800*1280"
+					output_dts_value="&lt;0x9fAF0000 0x7D0000&gt;"/>
+				<coder
+					modify_ui_value="1080*1920"
+					output_dts_value="&lt;0x9efc0000 0x1000000&gt;"/>
+			</property>
+		</dts_node>
+		<!-- one node represent a node in DT -->
+		<dts_node name="fb_reserved: fb_mem" ui_node_name="fb_memory">
+			<!-- property name and value represent a property of node in DT -->
+			<property
+				dts_name="reg"
+				ui_name="memory reserved for fb buffer"
+				ui_value="480*800|480*854|540*960|600*1024|720*1280|800*1280|1080*1920"
+				ui_current_value = "0x9F82D000 0x4B1000"
+				ui_comments="reserved memory for fb buffer, x * y is Panel Resolution."
+				widget_type="list">
+				<coder
+					modify_ui_value="480*800"
+					output_dts_value="&lt;0x9F7ED000 0x4B1000&gt;"/>
+				<coder
+					modify_ui_value="480*854"
+					output_dts_value="&lt;0x9F7ED000 0x4B1000&gt;"/>
+				<coder
+					modify_ui_value="540*960"
+					output_dts_value="&lt;0x9F21B00 0x5EF000&gt;"/>
+				<coder
+					modify_ui_value="600*1024"
+					output_dts_value="&lt;0x9F408000 0x708000&gt;"/>
+				<coder
+					modify_ui_value="720*1280"
+					output_dts_value="&lt;0x9ED34000 0xA8C000&gt;"/>
+				<coder
+					modify_ui_value="800*1280"
+					output_dts_value="&lt;0x9E438000 0xBB8000&gt;"/>
+				<coder
+					modify_ui_value="1080*1920"
+					output_dts_value="&lt;0x9D805000 0x17BB000&gt;"/>
+			</property>
+		</dts_node>
+	</ui_pannel>
+</ui>

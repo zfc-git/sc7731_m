@@ -1,0 +1,35 @@
+<ui name="SPRD_EIC_KEYS">
+    <ui_pannel name="sprd_eic_keys">
+        <dts_node ui_node_name="sprd eic keys" name="sprd_eic_keys">
+            <property dts_name="input-name" ui_value="sprd-eic-keys" ui_current_value="sprd-eic-keys" widget_type="edit" ui_comments="input名称" ui_name="input-name"/>
+        </dts_node>
+<!--
+        <dts_node ui_node_name="power key" name="key_power">
+            <property dts_name="gpios" ui_value="&lt;&amp;a_eic_gpio 2 0&gt;" ui_current_value="&lt;&amp;a_eic_gpio 2 0&gt;" widget_type="edit" ui_comments="eic number" ui_name="gpios"/>
+            <property dts_name="debounce-interval" ui_value="&lt;2&gt;" ui_current_value="&lt;2&gt;" widget_type="edit" ui_comments="去抖时间" ui_name="debounce-interval"/>
+            <property dts_name="gpio-key,wakeup" ui_value="true | false" ui_current_value="true" widget_type="checkbox" ui_comments="是否支持唤醒AP" dts_type="property" ui_name="support wakeup">
+                <coder output_dts_value="gpio-key,wakeup" modify_ui_value="true"/>
+                <coder output_dts_value="NA" modify_ui_value="false"/>
+            </property>
+        </dts_node>
+-->
+        <dts_node ui_node_name="volumeup key" name="key_volumeup">
+            <property dts_name="gpios" ui_value="&lt;&amp;a_eic_gpio 10 0&gt;" ui_current_value="&lt;&amp;a_eic_gpio 10 0&gt;" widget_type="edit" ui_comments="eic number" ui_name="gpios"/>
+            <property dts_name="debounce-interval" ui_value="&lt;2&gt;" ui_current_value="&lt;2&gt;" widget_type="edit" ui_comments="去抖时间" ui_name="debounce-interval"/>
+            <property dts_name="gpio-key,wakeup" ui_value="true | false" ui_current_value="true" widget_type="checkbox" ui_comments="是否支持唤醒AP" dts_type="property" ui_name="support wakeup">
+                <coder output_dts_value="gpio-key,wakeup" modify_ui_value="true"/>
+                <coder output_dts_value="NA" modify_ui_value="false"/>
+            </property>
+        </dts_node>
+<!--
+        <dts_node ui_node_name="volumedown key" name="key_volumedown">
+            <property dts_name="gpios" ui_value="&lt;&amp;a_eic_gpio 11 0&gt;" ui_current_value="&lt;&amp;a_eic_gpio 11 0&gt;" widget_type="edit" ui_comments="eic number" ui_name="gpios"/>
+            <property dts_name="debounce-interval" ui_value="&lt;2&gt;" ui_current_value="&lt;2&gt;" widget_type="edit" ui_comments="去抖时间" ui_name="debounce-interval"/>
+            <property dts_name="gpio-key,wakeup" ui_value="true | false" ui_current_value="true" widget_type="checkbox" ui_comments="是否支持唤醒AP" dts_type="property" ui_name="support wakeup">
+                <coder output_dts_value="gpio-key,wakeup" modify_ui_value="true"/>
+                <coder output_dts_value="NA" modify_ui_value="false"/>
+            </property>
+        </dts_node>
+-->
+    </ui_pannel>
+</ui>

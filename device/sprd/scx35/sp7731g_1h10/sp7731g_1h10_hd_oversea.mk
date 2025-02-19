@@ -1,0 +1,17 @@
+include device/sprd/scx35/sp7731g_1h10/sp7731g_1h10_hd_native.mk
+
+BUILDING_PDK_NATIVE := true
+
+PRODUCT_REVISION := oversea multi-lang
+include $(APPLY_PRODUCT_REVISION)
+
+# Overrides
+PRODUCT_NAME := sp7731g_1h10_hd_oversea
+PRODUCT_DEVICE := $(TARGET_BOARD)
+PRODUCT_MODEL := SP7731A
+PRODUCT_BRAND := SPRD
+PRODUCT_MANUFACTURER := SPRD
+
+ifndef PRODUCT_LOCALES
+PRODUCT_LOCALES := zh_CN zh_TW en_US
+endif

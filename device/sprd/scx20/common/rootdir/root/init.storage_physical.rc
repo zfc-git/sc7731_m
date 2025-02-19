@@ -1,0 +1,19 @@
+######
+# for physical internal
+# @{
+on boot
+    write /sys/class/android_usb/android0/f_mass_storage/board_support_luns 2
+on early-fs
+    export EXTERNAL_STORAGE /storage/self/primary
+
+on property:persist.storage.type=2
+    setprop persist.storage.primary /storage/sdcard0
+    setprop persist.storage.secondary /storage/sdcard1
+
+on property:persist.storage.type=1
+    setprop persist.storage.primary /storage/sdcard1
+    setprop persist.storage.secondary /storage/sdcard0
+
+# @}
+######
+

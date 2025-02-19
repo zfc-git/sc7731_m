@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- the reference template of board building tool about SDIO -->
+<ui name="TP">
+	<!-- version 151216
+		msg2138_ts@26{
+			compatible = "Mstar,msg2138_ts";
+			reg = <0x26>;
+			gpios = <&d_gpio_gpio 28 0
+                                 &d_gpio_gpio 29 0>;
+			vdd_name = "vdd28";
+			virtualkeys = <256 1068 64 64
+				128 1068 64 64
+				192 1068 64 64>;
+			TP_MAX_X = <480>;
+			TP_MAX_Y = <800>;
+		 };
+		-->
+        <ui_pannel name="msg2138_ts">
+        <dts_node ui_node_name="msg touch panel" name="msg2138_ts@26">
+            <!-- GPIO  RST, INT-->
+            <property dts_name="gpios" ui_value="&lt;&amp;d_gpio_gpio 28 0 &amp;d_gpio_gpio 29 0&gt;"	 ui_current_value="&lt;&amp;d_gpio_gpio 28 0 &amp;d_gpio_gpio 29 0&gt;"	 widget_type="edit" ui_comments="gpios这个属性有两组值，用户一般只需要修改GPIO number(如:28 29)即可。第一组第一个值&amp;d_gpio_gpio表示关联到节点d_gpio_gpio，第二个值28表示用于复位的gpio numnber为28，第三个值默认为0,第二组第一个值&amp;d_gpio_gpio表示关联到节点d_gpio_gpio，第二个值29表示用于用于中断的gpio numnber为29，第三个值默认为0" ui_name="reset and interrupt gpio number"/>
+            <!-- vdd -->
+            <property dts_name="vdd_name" ui_value="vdd28 | vdd18" ui_current_value="vdd28" widget_type="list" ui_comments="TP's default compatiblity" ui_name="vdd_name">
+                <coder output_dts_value="&quot;vdd18&quot;" modify_ui_value="vdd18"/>
+                <coder output_dts_value="&quot;vdd28&quot;" modify_ui_value="vdd28"/>
+            </property>
+            <property dts_name="virtualkeys" ui_value="&lt;256 1068 64 64 128 1068 64 64 192 1068 64 64&gt;"	 ui_current_value="&lt;256 1068 64 64 128 1068 64 64 192 1068 64 64&gt;"	 widget_type="edit" ui_comments="virtualkeys point:APK select,home,back." ui_name="virtualkeys">
+                <coder output_dts_value="&lt;256 1068 64 64 128 1068 64 64 192 1068 64 64&gt;"	 modify_ui_value="&lt;256 1068 64 64 128 1068 64 64 192 1068 64 64&gt;"	/>
+            </property>
+            <!-- TP_MAX_X -->
+            <property dts_name="TP_MAX_X" ui_value="&lt;480&gt;" ui_current_value="&lt;480&gt;"	 widget_type="edit" ui_comments="TP max X, normal value: 480,720,800..." ui_name="TP_MAX_X">
+                <coder output_dts_value="&lt;480&gt;"	 modify_ui_value="&lt;480&gt;"	/>
+            </property>
+            <!-- TP_MAX_Y -->
+            <property dts_name="TP_MAX_Y" ui_value="&lt;800&gt;" ui_current_value="&lt;1280&gt;" widget_type="edit" ui_comments="TP max Y, normal value: 960,1280..." ui_name="TP_MAX_Y">
+                <coder output_dts_value="&lt;800&gt;" modify_ui_value="&lt;800&gt;"	/>
+            </property>
+
+        </dts_node>
+    </ui_pannel>
+</ui>

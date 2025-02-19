@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- the reference template of board building tool about Sensor -->
+<!--
+		lis3dh_acc@18{
+			compatible = "ST,lis3dh_acc";
+			reg = <0x18>;
+			gpios = <&d_gpio_gpio 238 0>;
+			poll_interval = <10>;
+			min_interval = <1>;
+			g_range = <0>;
+			axis_map_x = <0>;
+			axis_map_y = <1>;
+			axis_map_z = <2>;
+			negate_x = <1>;
+			negate_y = <1>;
+			negate_z = <0>;
+		};
+		ltr_558als@23{
+			compatible = "LITEON,ltr_558als";
+			reg = <0x23>;
+			gpios = <&d_gpio_gpio 239 0>;
+		};
+		epl2182_pls@49{
+			compatible = "ELAN,epl2182_pls";
+			reg = <0x49>;
+			gpios = <&d_gpio_gpio 239 0>;
+		};
+-->
+<ui name="SENSOR">
+    <ui_pannel name="Accleremeter Sensor">
+        <!-- The dts_node represent a device node in DT and the dts_node name is
+	    the name of the node.The dts_name in property represent the property
+	    of the DT node. By these two names we can find out the relevant
+	    property in DT about the widget.
+	-->
+        <dts_node ui_node_name="Accleremeter sensor ST lis3dh" name="lis3dh_acc@18">
+            <property dts_name="reg" ui_value="&lt;0x18&gt;" ui_current_value="&lt;0x18&gt;" widget_type="edit" ui_comments="lis3dh I2C reg address" ui_name="reg"/>
+            <property dts_name="gpios" ui_value="&lt;&amp;d_gpio_gpio 238 0&gt;" ui_current_value="&lt;&amp;d_gpio_gpio 238 0&gt;" widget_type="edit" ui_comments="Specity GPIO number for interrupter, if this GPIO is not set, this value will be NA" ui_name="gpios"/>
+            <property dts_name="poll_interval" ui_value="&lt;10&gt;" ui_current_value="&lt;10&gt;" widget_type="edit" ui_comments="lis3dh default polling internal(ms)" ui_name="poll_interval"/>
+            <property dts_name="min_interval" ui_value="&lt;1&gt;" ui_current_value="&lt;1&gt;" widget_type="edit" ui_comments="lis3dh min polling internal(ms)" ui_name="min_interval"/>
+            <property dts_name="g_range" ui_value="0x00|0x10|0x20|0x30" ui_current_value="0x10" widget_type="list" ui_comments="lis3dh range setting (0x00:2G,0x10:4G,0x20:8G,0x30:16G)" ui_name="g_range">
+                <coder output_dts_value="&lt;0x00&gt;" modify_ui_value="0x00"/>
+                <coder output_dts_value="&lt;0x10&gt;" modify_ui_value="0x10"/>
+                <coder output_dts_value="&lt;0x20&gt;" modify_ui_value="0x20"/>
+                <coder output_dts_value="&lt;0x30&gt;" modify_ui_value="0x30"/>
+            </property>
+            <property dts_name="axis_map_x " ui_value="0|1|2" ui_current_value="0" widget_type="list" ui_comments="lis3dh X axis mapping: 0 –x， 1-y ，2-z" ui_name="axis_map_x ">
+                <coder output_dts_value="&lt;0&gt;" modify_ui_value="0"/>
+                <coder output_dts_value="&lt;1&gt;" modify_ui_value="1"/>
+                <coder output_dts_value="&lt;2&gt;" modify_ui_value="2"/>
+            </property>
+            <property dts_name="axis_map_y " ui_value="0|1|2" ui_current_value="1" widget_type="list" ui_comments="lis3dh Y axis mapping: 0 –x， 1-y ，2-z" ui_name="axis_map_y ">
+                <coder output_dts_value="&lt;0&gt;" modify_ui_value="0"/>
+                <coder output_dts_value="&lt;1&gt;" modify_ui_value="1"/>
+                <coder output_dts_value="&lt;2&gt;" modify_ui_value="2"/>
+            </property>
+            <property dts_name="axis_map_z " ui_value="0|1|2" ui_current_value="2" widget_type="list" ui_comments="lis3dh Z axis mapping: 0 –x， 1-y ，2-z" ui_name="axis_map_z ">
+                <coder output_dts_value="&lt;0&gt;" modify_ui_value="0"/>
+                <coder output_dts_value="&lt;1&gt;" modify_ui_value="1"/>
+                <coder output_dts_value="&lt;2&gt;" modify_ui_value="2"/>
+            </property>
+            <property dts_name="negate_x " ui_value="0|1" ui_current_value="1" widget_type="list" ui_comments="lis3dh X axial direction 0-Positive, 1-Negative" ui_name="negate_x ">
+                <coder output_dts_value="&lt;0&gt;" modify_ui_value="0"/>
+                <coder output_dts_value="&lt;1&gt;" modify_ui_value="1"/>
+            </property>
+            <property dts_name="negate_y " ui_value="0|1" ui_current_value="1" widget_type="list" ui_comments="lis3dh Y axial direction 0-Positive, 1-Negative" ui_name="negate_y">
+                <coder output_dts_value="&lt;0&gt;" modify_ui_value="0"/>
+                <coder output_dts_value="&lt;1&gt;" modify_ui_value="1"/>
+            </property>
+            <property dts_name="negate_z " ui_value="0|1" ui_current_value="0" widget_type="list" ui_comments="lis3dh Z axial direction 0-Positive, 1-Negative" ui_name="negate_z ">
+                <coder output_dts_value="&lt;0&gt;" modify_ui_value="0"/>
+                <coder output_dts_value="&lt;1&gt;" modify_ui_value="1"/>
+            </property>
+        </dts_node>
+  </ui_pannel>
+   <ui_pannel name="ALS Sensor">
+        <dts_node ui_node_name="ALS sensor LTR558" name="ltr_558als@23">
+            <property dts_name="reg" ui_value="&lt;0x23&gt;" ui_current_value="&lt;0x23&gt;" widget_type="edit" ui_comments="ltr558 I2C reg address" ui_name="reg"/>
+            <property dts_name="gpios" ui_value="&lt;&amp;d_gpio_gpio 239 0&gt;" ui_current_value="&lt;&amp;d_gpio_gpio 239 0&gt;" widget_type="edit" ui_comments="Specity GPIO number for interrupter, if this GPIO is not set, this value will be NA" ui_name="gpios"/>
+        </dts_node>
+    </ui_pannel>
+
+    <ui_pannel name="ALS epl2182_pls">
+        <dts_node ui_node_name="ALS sensor EPL2182" name="epl2182_pls@49>
+            <property dts_name="reg" ui_value="&lt;0x49&gt;" ui_current_value="&lt;0x49&gt;" widget_type="edit" ui_comments="ltr558 I2C reg address" ui_name="reg"/>
+            <property dts_name="gpios" ui_value="&lt;&amp;d_gpio_gpio 239 0&gt;" ui_current_value="&lt;&amp;d_gpio_gpio 239 0&gt;" widget_type="edit" ui_comments="Specity GPIO number for interrupter, if this GPIO is not set, this value will be NA" ui_name="gpios"/>
+        </dts_node>
+    </ui_pannel>
+</ui>
