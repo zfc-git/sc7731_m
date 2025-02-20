@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<string name="mr_system_route_name">"ছিষ্টেম"</string>
+<string name="mr_user_route_category_name">"ডিভাইচসমূহ"</string>
+<string name="mr_media_route_button_content_description">"কাষ্ট"</string>
+<string name="mr_media_route_chooser_title">"ডিভাইচৰ সৈতে সংযোগ"</string>
+<string name="mr_media_route_chooser_searching">"ডিভাইচ বিচাৰি আছে\u2026"</string>
+<string name="mr_media_route_controller_disconnect">"সংযোগ বিচ্ছিন্ন"</string>
+<string name="mr_media_route_controller_stop">"কাষ্টিং বন্ধ কৰক"</string>
+<string name="mr_media_route_controller_settings_description">"ছেটিংচ ৰুট কৰক"</string>
+<string name="mr_media_route_controller_play">"চালু কৰক।"</string>
+<string name="mr_media_route_controller_pause">"স্তব্ধ"</string>
+<string name="mr_media_route_controller_no_info_available">"কোনো তথ্য উপলব্ধ নহয়"</string>
+</resources>

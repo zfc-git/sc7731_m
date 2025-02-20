@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<string name="orb_search_action">"Ação de Busca"</string>
+<string name="lb_search_bar_hint">"Pesquisar"</string>
+<string name="lb_search_bar_hint_speech">"Falar para buscar"</string>
+<string name="lb_search_bar_hint_with_title">"Buscar <xliff:g id="search context">%1$s</xliff:g>"</string>
+<string name="lb_search_bar_hint_with_title_speech">"Falar para buscar <xliff:g id="search context">%1$s</xliff:g>"</string>
+<string name="lb_control_display_fast_forward_multiplier">"%1$dX"</string>
+<string name="lb_control_display_rewind_multiplier">"%1$dX"</string>
+<string name="lb_playback_controls_play">"Reproduzir"</string>
+<string name="lb_playback_controls_pause">"Pausar"</string>
+<string name="lb_playback_controls_fast_forward">"Avançar"</string>
+<string name="lb_playback_controls_fast_forward_multiplier">"Rápido para Frente %1$dX"</string>
+<string name="lb_playback_controls_rewind">"Retroceder"</string>
+<string name="lb_playback_controls_rewind_multiplier">"Rebobinar %1$dX"</string>
+<string name="lb_playback_controls_skip_next">"Saltar Próximo"</string>
+<string name="lb_playback_controls_skip_previous">"Saltar Anterior"</string>
+<string name="lb_playback_controls_more_actions">"Mais Ações"</string>
+<string name="lb_playback_controls_thumb_up">"Deselecionar Polegar Cima"</string>
+<string name="lb_playback_controls_thumb_up_outline">"Selecionar Polegar Cima"</string>
+<string name="lb_playback_controls_thumb_down">"Deselecionar Polegar Baixo"</string>
+<string name="lb_playback_controls_thumb_down_outline">"Selecionar Polegar Baixo"</string>
+<string name="lb_playback_controls_repeat_none">"Repetir Nada"</string>
+<string name="lb_playback_controls_repeat_all">"Repetir Tudo"</string>
+<string name="lb_playback_controls_repeat_one">"Repetir Um"</string>
+<string name="lb_playback_controls_shuffle_enable">"Ativar Aleatório"</string>
+<string name="lb_playback_controls_shuffle_disable">"Desativar Aleatório"</string>
+<string name="lb_playback_controls_high_quality_enable">"Ativar Alta Qualidade"</string>
+<string name="lb_playback_controls_high_quality_disable">"Desativar Alta Qualidade"</string>
+<string name="lb_playback_controls_closed_captioning_enable">"Ativar Legendas Fechadas"</string>
+<string name="lb_playback_controls_closed_captioning_disable">"Desativar Legendas Fechadas"</string>
+</resources>

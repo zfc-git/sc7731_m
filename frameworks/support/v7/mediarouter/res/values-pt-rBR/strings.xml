@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<string name="mr_system_route_name">"Sistema"</string>
+<string name="mr_user_route_category_name">"Aparelhos"</string>
+<string name="mr_media_route_button_content_description">"Transmitir"</string>
+<string name="mr_media_route_chooser_title">"Conectar ao dispositivo"</string>
+<string name="mr_media_route_chooser_searching">"Procurando dispositivos…"</string>
+<string name="mr_media_route_controller_disconnect">"Desconectar"</string>
+<string name="mr_media_route_controller_stop">"Parar lançar"</string>
+<string name="mr_media_route_controller_settings_description">"Ajustes de Route"</string>
+<string name="mr_media_route_controller_play">"Reproduzir"</string>
+<string name="mr_media_route_controller_pause">"Pausar"</string>
+<string name="mr_media_route_controller_no_info_available">"Sem info disponível"</string>
+</resources>

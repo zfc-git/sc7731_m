@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<string name="mr_system_route_name">"Na\'ura"</string>
+<string name="mr_user_route_category_name">"Na\'urori"</string>
+<string name="mr_media_route_button_content_description">"Jefa"</string>
+<string name="mr_media_route_chooser_title">"Hada na\'ura"</string>
+<string name="mr_media_route_chooser_searching">"Neman na\'urori\u2026"</string>
+<string name="mr_media_route_controller_disconnect">"Cire hadi"</string>
+<string name="mr_media_route_controller_stop">"Tsai da daukar"</string>
+<string name="mr_media_route_controller_settings_description">"Saitocin hanya"</string>
+<string name="mr_media_route_controller_play">"Kunna"</string>
+<string name="mr_media_route_controller_pause">"Tsaida"</string>
+<string name="mr_media_route_controller_no_info_available">"Babu wani bayani"</string>
+</resources>
