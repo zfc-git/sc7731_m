@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- SPRD: Bug#474988 ADD for operator lte level plugin @{ -->
+    <string name="feature_signalstrength" translatable="false">plugin.sprd.signalstrengthforoperator.SignalStrengthUtilsForOperator</string>
+    <!-- @} -->
+    <string name="feature_plugin_for_telephony" translatable="false">plugin.sprd.updateAdnUidSupportCMCC.UpdateAdnUidSupportCMCC</string>
+
+    <!-- SPRD: Bug#522864&522865 ADD for reliance plugin @{ -->
+     <string name="feature_AddonEmergencyAndLowBattaryCallUtils" translatable="false">plugin.sprd.CallUtilsPlugin.AddonEmergencyAndLowBattaryCallUtils</string>
+    <!-- @} -->
+
+    <!-- SPRD: Add trafficClass when activate pdp @{ -->
+    <string name="feature_add_trafficClass" translatable="false">plugin.sprd.SupportTrafficClass.SupportTrafficClassPlugin</string>
+    <!-- SPRD: add USSD dialog for bug 490252 @{ -->
+    <string name="ussd_feature_for_orange" translatable="false">plugin.sprd.ussdsupportorange.USSDSupportOrange</string>
+    <!-- @} -->
+    <!-- SPRD: telephony for orange @{ -->
+    <string name="feature_for_orange" translatable="false">plugin.sprd.telephonysupportorange.TelephonySupportOrange</string>
+    <!-- @} -->
+    <!-- SPRD: Add for the clear code and RAU. @{ -->
+    <string name="feature_clearcode_and_rau" translatable="false">plugin.sprd.clearcode.ClearCodePlugin</string>
+    <!-- @} -->
+    <!-- SPRD: Add for bug544051 @{ -->
+    <bool name="config_enableDtmfLocalTone">false</bool>
+    <!-- @} -->
+</resources>
