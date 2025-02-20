@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<string name="more_string">"\u002B<xliff:g id="count">%1$d</xliff:g>"</string>
+<string name="copy_email">"Copiar endereço de email"</string>
+<string name="copy_number">"Copiar número de telefone"</string>
+<string name="action_label">"Voltar"</string>
+<string name="accessbility_suggestion_dropdown_opened">"Sugestões de contato abertas"</string>
+<string name="dropdown_delete_button_desc">"Remover <xliff:g id="contact">%s</xliff:g> de recipientes"</string>
+</resources>
