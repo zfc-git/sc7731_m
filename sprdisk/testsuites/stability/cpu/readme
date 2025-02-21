@@ -1,0 +1,15 @@
+the case uses for test cpu_hotplug and cpu_dvfs
+
+[usage]:cpu_hotplug.sh [times] [interval]
+example:
+./cpu_hotplug 100 0.5  #test cpu hotplug 100 times, sleep 0.5 second between every two times
+测试cpu hotplug 100次，每次间隔0.5秒
+./cpu_hotplug          #default test cpu hotplug 10 times ,sleep 1 second between every two times
+默认测试cpu hotplug 10次，每次测试间隔1秒。
+
+[usage]:cpu_dvfs.sh [times] [interval]
+example:
+./cpu_dvfs 100 0.5  #this will change cpu freq 100 times ,sleep 0.5 second between two times
+测试cpu_dvfs 100次，每次间隔0.5秒。
+./cpu_dvfs        #default this will change cpu freq 10 times ,sleep 1 second between two times
+默认测试cpu_dvfs 10次，每次间隔1秒。

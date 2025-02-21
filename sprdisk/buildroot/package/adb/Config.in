@@ -1,0 +1,6 @@
+config BR2_PACKAGE_ADB
+	bool "adb"
+	select BR2_PACKAGE_ZLIB
+	select BR2_PACKAGE_OPENSSL
+	help
+	  Android debug bridge

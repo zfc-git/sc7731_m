@@ -1,0 +1,13 @@
+libc.so
+libdl.so
+libm.so
+libmemoryheapion.so
+libstdc++.so
+libutils.so
+libcutils.so
+liblog.so
+libbacktrace.so
+libstlport.so
+libgccdemangle.so
+libunwind.so
+libunwind-ptrace.so

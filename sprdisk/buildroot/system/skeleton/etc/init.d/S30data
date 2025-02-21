@@ -1,0 +1,22 @@
+#!/bin/sh
+#
+# mount /data....
+#
+if [ ! -d /data ]; then
+	mkdir /data
+fi
+num=`fdisk -l | grep "userdata" | awk '{print $1}'`
+#for emmc
+[ -n $num ] && /bin/mount /dev/mmcblk0p"$num" /data && exit 0
+#for nand
+[ -c /dev/mtd3 ] || exit 1
+case "$1" in
+	*)
+	echo "Starting mount /data..."
+	/bin/mount /dev/mmcblk0p1 /media/sdcard
+	/usr/sbin/ubiattach /dev/ubi_ctrl -m 3
+	sleep 1
+	/bin/mount -t ubifs /dev/ubi0_userdata /data
+esac
+
+exit $?

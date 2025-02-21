@@ -1,0 +1,12 @@
+this case is use for reboot or reboot-sleep/wakeup .
+we need a file("/data/test") to store parameter.
+1.usage for reboot test:
+echo [cntimes] >/data/test			//the reboot times
+echo [inttime] >>/data/test			//the delay time to start next reboot
+echo b >/proc/sysrq-trigger			//reboot the machine to start test
+
+2.usage for reboot-sleep/wakeup test
+echo [cntimes] >/data/test			//the reboot times
+echo [inttime] >>/data/test			//the delay time to start next reboot
+echo [num] >>/data/test				//switch on,so we can sleep/wake before next reboot
+echo b >/proc/sysrq-trigger			//reboot the machine to start test

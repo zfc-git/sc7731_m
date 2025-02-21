@@ -1,0 +1,53 @@
+#!/bin/sh
+#
+# this file just uses when power on testing
+#
+p_test="/data/test"
+
+deep_sleep()
+{
+	rtc="/opt/ltp/testcases/bin/sprd_rtc_test1"
+	[ -x $rtc ] || return 0
+	echo -e "\nstart going to deep sleep ..."
+	echo mem >/sys/power/state
+	$rtc >/dev/null
+	echo on >/sys/power/state
+	sleep 9
+	res="success"
+	echo
+	dmesg | grep "deep sleep.* times"
+	[ $? -eq 0 ] || res="failed!!"
+	echo "wake up from deep sleep $res!!"
+}
+on_off()
+{
+	[ -s $1 ] || exit 0
+	freq=`awk '{if(NR==1) print $1}' $1`
+	delay=`awk '{if(NR==2) print $1}' $1`
+	deep=`awk '{if(NR==3) print $1}' $1`
+	if [ $freq -le 0 ] ; then
+		rm $p_test -rf
+		return 0
+	fi
+	echo "left $freq times to reboot ..."
+#	echo "---------delay $delay seconds to reboot ----"
+	[ -z $deep ] || deep_sleep
+	let freq-=1
+	echo $freq >$1
+	echo $delay >>$1
+	[ -z $deep ] || echo $deep >>$1
+	[ -z $deep ] || let delay-=10
+	[ $delay -ge 0 ] && sleep $delay
+	sync
+	echo b >/proc/sysrq-trigger
+}
+
+case $1 in
+	start)
+		on_off $p_test &
+	;;
+	*)
+	;;
+esac
+
+exit $?

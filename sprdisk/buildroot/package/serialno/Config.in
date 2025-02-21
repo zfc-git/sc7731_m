@@ -1,0 +1,4 @@
+config BR2_PACKAGE_SERIALNO
+	bool "serialno"
+	help
+	  Android debug bridge

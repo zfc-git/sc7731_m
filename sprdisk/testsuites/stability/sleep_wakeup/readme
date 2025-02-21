@@ -1,0 +1,3 @@
+the case uses for test sleep-wakeup.
+usage:
+./suspend.sh [times]		//test sleep/wakeup times, the log is stored in /data/sleep.log

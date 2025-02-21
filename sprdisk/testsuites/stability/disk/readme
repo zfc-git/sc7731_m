@@ -1,0 +1,17 @@
+usage ./run_dtest [参数1] [参数2] [参数3]
+参数1：测试路径,-D:生成/data/test.txt
+			  -T:生成/storage/sdcard0/test.txt
+			  default=-D
+参数2：测试文件大小，单位MB,default=1024MB
+参数3：测试时间，单位Hour,default=24 hours
+默认生成的log在/data/dtest_err.log里
+
+例子：
+1.default test
+./run_dtest   //在data目录下生成1024MB的test.txt文件，测试24小时
+2. 测试data分区大小为512MB,48小时
+./run_dtest -D 512 48 //在data目录下生成大小为512MB的test.txt文件，测试48小时
+3. 测试T卡
+./run_dtest -T  	//在T卡下生成1024MB的test.txt文件，测试24小时
+4.测试T卡大小为2048MB,10小时
+./run_dtest -T 2048 10   //在data目录下生成2048MB的test.txt文件，测试10小时
