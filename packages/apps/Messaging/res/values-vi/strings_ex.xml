@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<string name="signature_title">"Chữ ký"</string>
+<string name="pref_title_sms_retry_times">Bật Thử lại SMS</string>
+<string name="preference_name">Cụm từ thông dụng</string>
+<string name="select">"Đã chọn"</string>
+<string name="item_cancel">"Hủy"</string>
+<string name="item_delete">"xóa"</string>
+<string name="save_as_teltype">"Đối với điện thoại"</string>
+<string name="save_as_mmstype">"Đối với Sms"</string>
+<string name="type_to_pharser">"Gõ cụm từ phổ biến"</string>
+<string name="add">"Thêm"</string>
+<string name="edit">"Chỉnh sửa"</string>
+<string name="delete">"xóa"</string>
+<string name="finish">"Hoàn tất"</string>
+<string name="cancel">"Hủy"</string>
+<string name="add_pharser">"Thêm cụm từ phổ biến"</string>
+<string name="edit_pharser">Chỉnh sửa cụm từ thông dụng</string>
+<string name="pharser_can_modify">"Cụm từ Tùy chọn"</string>
+<string name="pharser_cannot_modify">"Sửa cụm từ"</string>
+<string name="select_item">"Bạn đã chọn"</string>
+<string name="select_commmon_phrase">Chọn cụm từ thông dụng</string>
+<string name="common_phrase_empty">"Không có cụm từ thông dụng"</string>
+<string name="action_add_phrase">"Chèn cụm từ phổ biến"</string>
+<string name="pref_other_settings_title">"Khác"</string>
+<string-array name="fixed_mms_phrase">
+<item>Hãy gọi số điện thoại văn phòng của tôi, cám ơn.</item>
+<item>Vui lòng liên hệ với tôi, xin cám ơn.</item>
+<item>Vui lòng nói cho tôi biết vị trí của bạn.</item>
+<item>Vui lòng gọi tới số di động của tôi sau, xin cám ơn.</item>
+<item>Tôi đang ở ngoài, về nhà và sẽ gọi điện cho bạn.</item>
+<item>"Tôi đang lái xe và sẽ trả lời sau."</item>
+<item>"Tôi đi trên đường, sẽ đến ngay lập tức."</item>
+<item>Tắc đường, sẽ tới muộn, xin lỗi.</item>
+<item>Gọi lại cho bạn sau.</item>
+<item>Tôi đang trong một buổi họp, trả lời sau.</item>
+</string-array>
+<string-array name="fixed_tel_phrase">
+<item>"Giờ tôi ko thể nói chuyện. Gì vậy?"</item>
+<item>"Tôi sẽ gọi lại ngay."</item>
+<item>"Tôi sẽ gọi lại sau."</item>
+<item>"Giờ tôi ko thể nói chuyện. Gọi sau nhé?"</item>
+</string-array>
+<string-array name="fixed_both_phrase">
+<item>"Xin vui lòng gọi cho tôi hoặc gửi sms cho tôi sau."</item>
+</string-array>
+</resources>

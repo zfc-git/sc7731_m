@@ -1,0 +1,62 @@
+#测试配置说明:--------------------------------------------定制适配美微视R106M
+#1.需要测试人员主动判断给出结果的有蓝色字体显示(测试结果:),必须点击按钮切换Fail/Pass;     注意:必须点击切换,否则结果为null;
+#2.测试完成后,必须点击back按键,退出app自动保存测试结果
+#3.测试颜色描述: 蓝色字体表示待测试,绿色字体表示测试通过,红色字体表示测试失败;
+
+PCBA=R106M
+ORDER=ZED-2020-09-293
+Firmware=r106m_userdebug_20200901
+
+#测试模式选项(此选项必须填写)(1/2/3):1--代表测试模式,      3--代表老化测试     *
+TestMode=1
+#老化时间(分钟)
+AgingTime=50
+
+#配置保存结果到不同文件里,区分贴片厂和客户保存不同的测试结果到系统
+PCBName=zed
+
+CPU=rk312x
+DDR=1GB
+FLASH=12.00GB
+Gsensor=Y
+#X;Y;Z OR Z+;Y+;X+;Z-;Y-;X-
+GSENSOR_XYZ=Z;Y
+UDISK=Y
+LCD=Y
+BL=1
+TP=Y
+SPK=2
+KEY=Y
+#Menu Camera VolU VolD Up Down Left Right Enter
+KEY_NUM=Menu;Camera;VolU;VolD;Left;Right;Enter
+CHARGE=Y
+RTC=Y
+MIC=2
+BT=Y
+#02:00:00:00:00 蓝牙地址匹配前缀
+BTPrefix=02:00
+Ethernet=Y
+4G=Y
+GPS=Y
+UART=Y
+GPIO1=Y
+ERJI=Y
+CALL=Y
+CAM=2
+#距感测试
+DISTS=Y
+#LED灯测试
+LED=Y
+
+
+#WIFI测试.WIFIaccount=账号,WIFIpassword=密码 ,WIFIlevel=-80    信号强度为负数,越大信号越好
+WIFIaccount=360wifi
+WIFIpassword=12345678
+WIFIlevel=-80
+#02:00:00:00:00 WIFI地址匹配前缀
+WifiPrefix=02:00:00
+#SN匹配前缀
+SNPrefix=123456789
+
+
+

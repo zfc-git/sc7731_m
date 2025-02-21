@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/main_layout"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/left_backgroundcolor"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/left_backgroundcolor"
+            android:orientation="vertical">
+
+            <!-- hand test -->
+            <!--
+                    <TextView
+                    android:layout_marginTop="15dp"
+                        android:id="@+id/handtest"
+                        style="@style/title_text_style"
+                        android:text="@string/str_handtest" />
+            -->
+			<TextView
+				android:id="@+id/tv_appversion"
+				style="@style/item_text_green"
+				android:text="@string/str_appv" />
+            <TextView
+                android:id="@+id/tv_pcba"
+                style="@style/item_text_green"
+                android:text="@string/str_pcba" />
+            <TextView
+                android:id="@+id/tv_order"
+                style="@style/item_text_green"
+                android:text="@string/str_order" />
+            <TextView
+                android:id="@+id/tv_cpu"
+                style="@style/item_text_green"
+                android:text="@string/str_cpu" />
+            <TextView
+                android:id="@+id/tv_Firmware"
+                style="@style/item_text_style"
+                android:text="@string/str_gujian" />
+            <LinearLayout
+                android:id="@+id/distance_sensor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue"
+                    android:textSize="18sp"
+                    android:text="@string/str_distance_tip" />
+
+                <TextView
+                    android:id="@+id/distance_sensor_result"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue"
+                    android:textSize="18sp"
+                    android:text="@string/str_distance" />
+            </LinearLayout>
+            <RelativeLayout
+				android:id="@+id/rl_recoder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/Line_spacing">
+                <TextView
+                    android:id="@+id/tv_recorder"
+                    style="@style/item_text_style"
+                    android:layout_centerVertical="true"
+                    android:text="@string/str_recoder" />
+
+                <Switch
+                    android:id="@+id/sw_recorder"
+                    style="@style/item_switch_style"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignBaseline="@id/tv_recorder"
+                    android:switchTextAppearance="@style/item_switch_style_onoff_default"
+                    android:text="@string/str_resultr"
+                    android:textOff="@string/fail"
+                    android:textOn="@string/pass" />
+
+                <Button
+                    android:id="@+id/btn_recorder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue"
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:layout_toLeftOf="@+id/sw_recorder"
+                    android:text="@string/str_start_test" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/tv_recorder"
+                    android:layout_marginRight="20dp"
+                    android:layout_toLeftOf="@+id/btn_recorder"
+                    android:layout_toRightOf="@+id/tv_recorder"
+                    android:max="100" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+				android:id="@+id/rl_key"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/Line_spacing">
+                <TextView
+                    android:id="@+id/tv_key"
+                    style="@style/item_text_style"
+                    android:text="@string/str_key" />
+
+                <Switch
+                    android:id="@+id/sw_key"
+                    style="@style/item_switch_style"
+                    android:layout_width="200dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_height="wrap_content"
+                    android:switchTextAppearance="@style/item_switch_style_onoff_default"
+                    android:visibility="gone"
+                    android:clickable="false"
+                    android:text="@string/str_resultr"
+                    android:textOff="@string/fail"
+                    android:textOn="@string/pass" />
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/tv_charge"
+                style="@style/item_text_style"
+                android:layout_marginTop="@dimen/Line_spacing"
+                android:text="@string/str_charger" />
+
+            <RelativeLayout
+                android:id="@+id/rl_led_light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/Line_spacing">
+
+                <TextView
+                    android:id="@+id/tv_led_light"
+                    style="@style/item_text_style"
+                    android:text="@string/str_led_light" />
+
+                <Switch
+                    android:id="@+id/sw_led_light"
+                    style="@style/item_switch_style"
+                    android:layout_width="200dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_height="wrap_content"
+                    android:switchTextAppearance="@style/item_switch_style_onoff_default"
+                    android:text="@string/str_resultr"
+                    android:textOff="@string/fail"
+                    android:textOn="@string/pass" />
+            </RelativeLayout>
+
+            <RelativeLayout
+				android:id="@+id/rl_erji"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/Line_spacing">
+
+                <TextView
+                    android:id="@+id/tv_erji"
+                    style="@style/item_text_style"
+                    android:text="@string/str_erji" />
+
+                <Switch
+                    android:id="@+id/sw_erji"
+                    style="@style/item_switch_style"
+                    android:layout_width="200dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_height="wrap_content"
+                    android:switchTextAppearance="@style/item_switch_style_onoff_default"
+                    android:text="@string/str_resultr"
+                    android:textOff="@string/fail"
+                    android:textOn="@string/pass" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_rjethernet"
+                style="@style/item_text_style"
+                android:layout_marginTop="@dimen/Line_spacing"
+                android:text="@string/str_rjethernet" />
+
+
+            <!--
+                    <TextView
+                        android:id="@+id/autotest"
+                        style="@style/title_text_style"
+                        android:text="@string/auto_handtest" />
+            -->
+            <!-- auto test 系统版本  rtc 内存  nand   重力感应  wifi  bt 收音机   GPS 电话 sim -->
+
+
+            <TextView
+                android:id="@+id/tv_rtc"
+                style="@style/item_text_style"
+                android:layout_marginTop="@dimen/Line_spacing"
+                android:text="@string/str_rtc" />
+
+            <TextView
+                android:id="@+id/tv_mem"
+                style="@style/item_text_style"
+                android:layout_marginTop="@dimen/Line_spacing"
+                android:text="@string/str_mem" />
+
+            <TextView
+                android:id="@+id/tv_nand_tip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/blue"
+                android:textSize="18sp"
+                android:visibility="gone"
+                android:text="@string/str_flash_tip" />
+
+            <TextView
+                android:id="@+id/tv_nand"
+                android:layout_marginTop="@dimen/Line_spacing"
+                style="@style/item_text_style"
+                android:text="@string/str_nand" />
+
+            <TextView
+                android:id="@+id/tv_sdcard"
+                android:layout_marginTop="@dimen/Line_spacing"
+                style="@style/item_text_style" />
+
+            <TextView
+                android:id="@+id/tv_usbdisk"
+                android:layout_marginTop="@dimen/Line_spacing"
+                style="@style/item_text_style" />
+
+            <RelativeLayout
+                android:id="@+id/rl_cam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/Line_spacing">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/Line_spacing"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/tv_cam"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:layout_weight="1"
+                        android:text="@string/str_cam" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+                <Switch
+                    android:id="@+id/sw_cam"
+                    style="@style/item_switch_style"
+                    android:layout_width="200dp"
+                    android:visibility="gone"
+                    android:layout_alignParentRight="true"
+                    android:layout_height="wrap_content"
+                    android:switchTextAppearance="@style/item_switch_style_onoff_default"
+                    android:text="@string/str_resultr"
+                    android:textOff="@string/fail"
+                    android:textOn="@string/pass" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_gsensor"
+                style="@style/item_text_style"
+                android:layout_marginTop="@dimen/Line_spacing"
+                android:text="@string/str_gsensor" />
+
+            <TextView
+                android:id="@+id/tv_wifi"
+                style="@style/item_text_style"
+                android:layout_marginTop="@dimen/Line_spacing"
+                android:text="@string/str_wifi" />
+
+            <TextView
+                android:id="@+id/tv_bt"
+                android:layout_marginTop="@dimen/Line_spacing"
+                style="@style/item_text_style"
+                android:text="@string/str_bt" />
+
+            <!-- <TextView
+                android:id="@+id/tv_fm"
+                style="@style/item_text_style"
+                android:text="@string/str_fm" /> -->
+
+            <TextView
+                android:id="@+id/tv_gps"
+                android:layout_marginTop="@dimen/Line_spacing"
+                style="@style/item_text_style"
+                android:text="@string/str_gps" />
+
+
+            <TextView
+                android:id="@+id/tv_sim"
+                android:layout_marginTop="@dimen/Line_spacing"
+                style="@style/item_text_style"
+                android:text="@string/str_sim" />
+
+            <RelativeLayout
+				android:id="@+id/rl_call"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/Line_spacing">
+
+                <TextView
+                    android:id="@+id/tv_phone"
+                    android:layout_marginTop="@dimen/Line_spacing"
+                    style="@style/item_text_style"
+                    android:text="@string/str_phone"
+                     />
+
+                <Button
+                    android:id="@+id/bt_phone"
+                    android:layout_marginLeft="50dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:text="@string/bt_phone" />
+                <Switch
+                    android:id="@+id/sw_call"
+                    style="@style/item_switch_style"
+                    android:layout_width="200dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_height="wrap_content"
+                    android:switchTextAppearance="@style/item_switch_style_onoff_default"
+                    android:text="@string/str_resultr"
+                    android:textOff="@string/fail"
+                    android:textOn="@string/pass" />
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+				android:id="@+id/ll_bl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/Line_spacing"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_brightness"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        style="@style/item_text_style"
+                        android:text="@string/brightness" />
+
+                    <Switch
+                        android:id="@+id/sw_brightness"
+                        style="@style/item_switch_style"
+                        android:layout_width="200dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_height="wrap_content"
+                        android:switchTextAppearance="@style/item_switch_style_onoff_default"
+                        android:text="@string/str_resultr"
+                        android:textOff="@string/fail"
+                        android:textOn="@string/pass" />
+                </RelativeLayout>
+
+                <SeekBar
+                    android:id="@+id/brightness_sb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:progress="180"
+                    android:max="255" />
+            </LinearLayout>
+
+            <LinearLayout
+				android:id="@+id/ll_serial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/Line_spacing"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/device_spinner"
+                    android:layout_width="200dp"
+                    android:layout_height="45dp" />
+
+                <Button
+                    android:id="@+id/serialportstate_btn"
+                    android:text="@string/send"
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/serialportstate_tv"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/Line_spacing"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/lcd_test"
+                    android:text="@string/str_lcdt"
+                    android:textSize="15sp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    />
+
+                <Button
+                    android:id="@+id/tp_test"
+                    android:text="@string/str_tpt"
+                    android:textSize="15sp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    />
+
+
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/Line_spacing"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/leftmusic_test"
+                android:text="@string/str_leftt"
+                android:textSize="15sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <Switch
+                android:id="@+id/sw_leftmusic"
+                style="@style/item_switch_style"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="@string/str_resultr"
+                android:switchTextAppearance="@style/item_switch_style_onoff_default"
+                android:textOff="@string/fail"
+                android:textOn="@string/pass" />
+
+            <Button
+                android:id="@+id/rightmusic_test"
+                android:text="@string/str_rightt"
+                android:textSize="15sp"
+                android:layout_marginLeft="200dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <Switch
+                android:id="@+id/sw_rightmusic"
+                style="@style/item_switch_style"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="@string/str_resultr"
+                android:switchTextAppearance="@style/item_switch_style_onoff_default"
+                android:textOff="@string/fail"
+                android:textOn="@string/pass" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_led"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/Line_spacing"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/led_test"
+                android:text="@string/str_led"
+                android:textSize="15sp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                />
+            <Switch
+                android:id="@+id/sw_led"
+                style="@style/item_switch_style"
+                android:layout_weight="0.8"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/str_resultr"
+                android:switchTextAppearance="@style/item_switch_style_onoff_default"
+                android:textOff="@string/fail"
+                android:textOn="@string/pass" />
+        </LinearLayout>
+
+          
+            <RelativeLayout
+                android:id="@+id/rl_motor"
+                android:layout_marginTop="@dimen/Line_spacing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/item_text_style"
+                    android:text="@string/str_mada" />
+
+                <Switch
+                    android:id="@+id/sw_motor"
+                    style="@style/item_switch_style"
+                    android:layout_width="200dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_height="wrap_content"
+                    android:switchTextAppearance="@style/item_switch_style_onoff_default"
+                    android:text="@string/str_resultr"
+                    android:textOff="@string/fail"
+                    android:textOn="@string/pass" />
+            </RelativeLayout>
+
+            <SeekBar
+                    android:id="@+id/motorleft_sb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:max="18"/>
+
+            <TextView
+                android:id="@+id/tv_sn"
+                android:layout_marginTop="@dimen/Line_spacing"
+                style="@style/item_text_style"
+                android:text="@string/str_sn" />
+
+            <TextView
+                android:id="@+id/tv_bt_mac"
+                style="@style/item_text_style"
+                android:visibility="gone"
+                android:text="@string/str_bttt" />
+
+            <TextView
+                android:id="@+id/tv_mac"
+                style="@style/item_text_style"
+                android:visibility="gone"
+                android:text="@string/str_wifitt" />
+
+            <TextView
+                android:id="@+id/tv_sys_version"
+                style="@style/item_text_green"
+                android:visibility="gone"
+                android:text="@string/str_sys_version" />
+
+            <Button
+                android:id="@+id/save_exit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/save_exit"
+                android:textColor="@color/blue"
+                android:textSize="@dimen/player_font_size" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/goto_left"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/test_report"
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/player_font_size" />
+
+                <Button
+                    android:id="@+id/goto_right"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/test_video"
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/player_font_size" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal"
+            android:layout_weight="2">
+
+            <FrameLayout
+                android:id="@+id/camera_preview"
+                android:layout_gravity="center"
+                android:layout_width="600dp"
+                android:layout_height="800dp"
+               />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:visibility="gone"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#ff0000"></LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#00ff00"></LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#0000ff"></LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+
+            <SurfaceView
+                android:id="@+id/video_play_surfaceview"
+                android:keepScreenOn="true"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" />
+
+            <ImageView
+                android:id="@+id/start_and_stop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/play" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

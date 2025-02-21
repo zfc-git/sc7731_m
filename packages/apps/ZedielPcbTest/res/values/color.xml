@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="left_backgroundcolor">#ff636363</color>
+    <color name="small_backgroundcolor">#ff4B4B4B</color>
+    <color name="title_color">#ffff00</color>
+    <color name="item_color">#00ff00</color>
+    
+    <color name="textcolor1">#ffd0d0d0</color>
+    <color name="textcolor2">#FFF8F8F8</color>
+    
+    <color name="build_button">#ff009900</color>
+	<color name="error_red">#FF0000</color>
+	<color name="colorPrimary">#B0E0E6</color>
+	<color name="gray">#C0C0C0</color>
+
+    <color name="red">#FF0000</color>
+    <color name="green">#00FF00</color>
+    <color name="blue">#0000FF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="player_color_txt">#FF0000</color>
+    <color name="player_color_num">#FF0000</color>
+</resources>

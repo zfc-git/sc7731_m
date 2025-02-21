@@ -1,0 +1,122 @@
+package com.zediel.util;
+
+import android.app.usage.StorageStatsManager;
+import android.content.Context;
+import android.os.Build;
+import android.os.Environment;
+import android.os.StatFs;
+import android.os.storage.StorageManager;
+import android.os.storage.StorageVolume;
+import android.util.Log;
+
+import java.io.File;
+import java.io.IOException;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.List;
+import java.util.Locale;
+import java.util.UUID;
+
+public class StorageQueryUtil {
+
+    private final static String TAG = "storage";
+	private  static  long totalSize = 0L;
+	private  static float unit = 1024, unit2 = 1000;
+	private  static String totalMem = "";
+
+    public static String queryWithStorageManager(Context context) {
+        StorageManager storageManager = (StorageManager) context.getSystemService(Context.STORAGE_SERVICE);
+        int version = Build.VERSION.SDK_INT;
+            try {
+                Method getVolumes = StorageManager.class.getDeclaredMethod("getVolumes");//6.0
+                List<Object> getVolumeInfo = (List<Object>) getVolumes.invoke(storageManager);
+                long total = 0L, used = 0L, systemSize = 0L;
+                for (Object obj : getVolumeInfo) {
+
+                    Field getType = obj.getClass().getField("type");
+                    int type = getType.getInt(obj);
+                    Log.d(TAG, "type: " + type);
+                    if (type == 1) {//TYPE_PRIVATE           
+
+                        //��ȡ�����ڴ��ܴ�С
+                        if (version >= Build.VERSION_CODES.O) {//8.0
+                            Method getFsUuid = obj.getClass().getDeclaredMethod("getFsUuid");
+                            String fsUuid = (String) getFsUuid.invoke(obj);
+                            totalSize = getTotalSize(context, fsUuid);//8.0 �Ժ�ʹ��
+                        } else if (version >= Build.VERSION_CODES.N_MR1) {//7.1.1
+                            Method getPrimaryStorageSize = StorageManager.class.getMethod("getPrimaryStorageSize");//5.0 6.0 7.0û��
+                            totalSize = (long) getPrimaryStorageSize.invoke(storageManager);
+                        }
+
+                        Method isMountedReadable = obj.getClass().getDeclaredMethod("isMountedReadable");
+                        boolean readable = (boolean) isMountedReadable.invoke(obj);
+                        if (readable) {
+                            Method file = obj.getClass().getDeclaredMethod("getPath");
+                            File f = (File) file.invoke(obj);
+
+                            if (totalSize == 0) {
+                                totalSize = f.getTotalSpace();
+                            }
+                            systemSize = totalSize - f.getTotalSpace();
+                            used += totalSize - f.getFreeSpace();
+                            total += totalSize;
+                        }
+                        Log.d(TAG, "type = " + type + "totalSize = " + getUnit(totalSize, unit)
+                                + " ,used(with system) = " + getUnit(used, unit)
+                                + " ,free = " + getUnit(totalSize - used, unit));
+
+                    } 
+                }
+
+				totalMem = getUnit(total, unit2) ;
+                Log.d(TAG, " total 内存= " + getUnit(total, unit2) + "\n used(with system) = " + getUnit(used, 1000)
+                        + "available = " + getUnit(total - used, unit2) + "  " + getUnit(systemSize, unit2));
+             
+			return totalMem;
+				
+            } catch (SecurityException e) {
+                Log.e(TAG, "permission.PACKAGE_USAGE_STATS");
+				return "unKnow";
+            } catch (Exception e) {
+                e.printStackTrace();
+					return "unKnow";
+       //         queryWithStatFs();
+            }
+        
+    }
+
+
+    private static String[] units = {"B", "KB", "MB", "GB", "TB"};
+
+    public static String getUnit(float size, float base) {
+        int index = 0;
+        while (size > base && index < 4) {
+            size = size / base;
+            index++;
+        }
+        return String.format(Locale.getDefault(), " %.2f %s", size, units[index]);
+    }
+
+    /**
+     * API 26 android O
+     *
+     */
+
+    public static long getTotalSize(Context context, String fsUuid) {
+        try {
+            UUID id;
+            if (fsUuid == null) {
+                id = StorageManager.UUID_DEFAULT;
+            } else {
+                id = UUID.fromString(fsUuid);
+            }
+            StorageStatsManager stats = context.getSystemService(StorageStatsManager.class);
+            return stats.getTotalBytes(id);
+        } catch (NoSuchFieldError | NoClassDefFoundError | NullPointerException | IOException e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
+}

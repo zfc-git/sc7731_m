@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <SurfaceView
+        android:id="@+id/video_play_surface_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:keepScreenOn="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/player_count"
+                    android:textColor="@color/player_color_txt"
+                    android:textSize="@dimen/player_font_size" />
+
+                <Chronometer
+                    android:id="@+id/timer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/player_padding"
+                    android:textColor="@color/player_color_num"
+                    android:textSize="@dimen/player_font_size" />
+
+                <TextView
+                    android:id="@+id/player_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/player_total"
+                    android:textColor="@color/player_color_txt"
+                    android:textSize="@dimen/player_font_size"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/player_setting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/player_padding"
+                    android:text="@string/player_setting"
+                    android:textColor="@color/player_color_txt"
+                    android:textSize="@dimen/player_font_size" />
+
+                <TextView
+                    android:id="@+id/player_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/player_status_doing"
+                    android:textColor="@color/player_color_txt"
+                    android:textSize="@dimen/player_font_size" />
+
+                <Button
+                    android:id="@+id/setting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/setting"
+                    android:textColor="@color/player_color_txt"
+                    android:textSize="@dimen/player_font_setting_size" />
+
+                <Button
+                    android:id="@+id/save_exit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/save_exit"
+                    android:textColor="@color/player_color_txt"
+                    android:textSize="@dimen/player_font_size" />
+
+                <Button
+                    android:id="@+id/goto_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_report"
+                    android:textColor="@color/player_color_txt"
+                    android:textSize="@dimen/player_font_size" />
+
+                <Button
+                    android:id="@+id/goto_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_mode"
+                    android:textColor="@color/player_color_txt"
+                    android:textSize="@dimen/player_font_size" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/setting_rl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/player_edit"
+                    android:layout_width="@dimen/player_edit_width"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/player_setting_edit"
+                    android:hint="@string/player_edit_tip"
+                    android:inputType="number"
+                    android:textColor="@color/player_color_num" />
+
+                <TextView
+                    android:id="@+id/player_setting_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/player_edit"
+                    android:text="@string/player_setting_edit"
+                    android:textColor="@color/player_color_txt"
+                    android:textSize="@dimen/player_font_size" />
+
+                <Button
+                    android:id="@+id/confirm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/player_edit"
+                    android:text="@string/confirm"
+                    android:textColor="@color/player_color_txt"
+                    android:textSize="@dimen/player_font_size" />
+
+                <TextView
+                    android:id="@+id/player_edit_set_tip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/confirm"
+                    android:layout_alignLeft="@+id/player_setting_edit"
+                    android:layout_alignRight="@+id/confirm"
+                    android:text="@string/player_edit_set_tip"
+                    android:textColor="@color/player_color_txt"
+                    android:textSize="@dimen/player_font_size" />
+
+                <Button
+                    android:id="@+id/player_clear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/player_edit_set_tip"
+                    android:layout_alignLeft="@+id/player_setting_edit"
+                    android:layout_alignRight="@+id/confirm"
+                    android:text="@string/player_clear"
+                    android:textColor="@color/player_color_txt"
+                    android:textSize="@dimen/player_font_size" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/click_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</FrameLayout>

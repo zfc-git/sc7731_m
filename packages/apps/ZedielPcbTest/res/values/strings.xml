@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ZedielPcbTest</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="str_handtest">手动测试</string>
+    <string name="auto_handtest">自动测试</string>
+
+    
+    <!-- items string -->
+    <string name="str_recoder">录音：[0]</string>
+    <string name="str_key">遥控与按键：</string>
+    <string name="str_udisk">U盘：[U盘未插入]</string>
+    <string name="str_sdcard">SD卡：</string>
+    <string name="str_charger">充电：</string>
+    <string name="str_erji">耳机：插入耳机测试</string>
+    <string name="str_led_light">LED灯测试</string>
+	<string name="str_rjethernet">RJ45：</string>
+    
+    <!-- auto test 系统版本  rtc 内存  nand   重力感应  wifi  bt 收音机   GPS 电话 sim-->
+    <string name="str_sys_version">系统版本：</string>
+    <string name="str_rtc">时钟：</string>
+    <string name="str_mem">内存：</string>
+    <string name="str_nand">NAND：</string>
+    <string name="str_gsensor">重力感应：</string>
+    <string name="str_wifi">WIFI：</string>
+    <string name="str_bt">BT：</string>
+    <string name="str_fm">收音机：</string>
+    <string name="str_gps">GPS：</string>
+    <string name="str_phone">电话：</string> 
+    <string name="str_sim">SIM：</string>
+    <string name="bt_phone">点击拨打电话</string>
+    
+    <string name="fm_test_search_station">搜索电台中...</string>
+    <string name="wb_text">正在播放</string>
+    <string name="wb_text_info">是否收到电台，并播放？</string>
+    <string name="fm_test_research">搜索</string>
+	<string name="brightness">亮度调节</string>
+	<string name="start">点击开始测试</string>
+	<string name="send">发送</string>
+	<string name="screencolor">屏幕颜色：</string>
+	<string name="str_null"> Null</string>
+    <string name="fail"> Fail</string>
+	<string name="pass"> Pass</string>
+	<string name="str_pcba">PCBA:</string>
+	<string name="str_order">ORDER:</string>
+	<string name="str_resultr">测试结果：</string>
+
+	<string name="str_appv">APP版本号 :</string>
+	<string name="str_gujian">固件版本：</string>
+	<string name="str_cam">相机测试</string>
+	<string name="str_lcdt">LCD测试</string>
+	<string name="str_tpt">TP测试</string>
+	<string name="str_leftt">左 声道</string>
+	<string name="str_rightt">右 声道</string>
+	<string name="str_led">LED测试</string>
+	<string name="str_mada">变速马达测试</string>
+	<string name="str_sn">SN序列号:</string>
+	<string name="str_wifitt">WIFI-MAC:</string>
+    <string name="str_bttt">BT-MAC:</string>
+	<string name="str_cpu">CPU:</string>
+	<string name="str_hdmi">HDMI:</string>
+
+    <string name="player_result">老化结果:</string>
+    <string name="player_count">老化计时:</string>
+    <string name="player_total">老化累计(分钟):%d</string>
+    <string name="player_setting">设置老化时间(分钟):%d</string>
+    <string name="player_setting_edit">设置老化时间(分钟):</string>
+    <string name="player_status_done">老化状态:完成</string>
+    <string name="player_status_doing">老化状态:未完成</string>
+    <string name="player_status_todo">老化结果:未老化</string>
+    <string name="confirm">确定</string>
+    <string name="setting">设置</string>
+    <string name="save_exit">保存并退出</string>
+    <string name="player_clear">清空老化记录</string>
+    <string name="player_edit_tip">单位分钟</string>
+    <string name="player_edit_set_tip">0分钟表示无限时间老化</string>
+    <string name="test_result">测试报告</string>
+    <string name="test_mode">测试</string>
+    <string name="test_report">报告</string>
+    <string name="test_video">老化</string>
+    <string name="test_exit">退出</string>
+    <string name="player_save_done">状态:完成</string>
+    <string name="player_save_doing">状态:未完成</string>
+    <string name="player_save_setting">设置时间(分钟):%d</string>
+    <string name="player_save_count">计时:</string>
+    <string name="player_finish_time">老化测试结束时间:%s</string>
+    <string name="test_pass">测试结果通过</string>
+    <string name="test_fail">测试结果不通过</string>
+    <string name="str_distance_tip">距感测试温馨提示:遮住摄像头正前方然后挪开连续操作3次</string>
+    <string name="str_flash_tip">机身存储测试提示:可用大小会和配置的大小进行比较\n配置时可进入设置存储查看剩余大小</string>
+    <string name="str_distance">距感测试:%s</string>
+    <string name="ethnet_init">未完成请插入网线</string>
+    <string name="str_start_test">重新测试</string>
+    <string name="str_switch">切换</string>
+</resources>
